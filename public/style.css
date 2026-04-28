@@ -938,15 +938,17 @@
 
   .bundle-save {
     position: absolute;
-    top: 16px;
+    bottom: 16px;
     right: 16px;
+    z-index: 10;
     background: var(--accent);
     color: white;
     font-family: 'Rubik', sans-serif;
     font-weight: 700;
-    font-size: 0.8rem;
-    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
     border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
 
   .bundle-body {
