@@ -1,0 +1,9 @@
+{
+  "name": "prismcollective",
+  "version": "1.0.0",
+  "description": "PrismCollective — Premium Sustainable Living Store",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "build": "echo 'Static site — no build step needed'"
+  }
+}

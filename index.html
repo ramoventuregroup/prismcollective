@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>PrismCollective — Sustainable Living, Naturally.</title>
+<meta name="description" content="Premium sustainable home and pet essentials. Eco-friendly products designed for a better tomorrow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/" class="header-logo">PrismCollective</a>
+    <nav class="header-nav" id="headerNav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/?section=bestsellers">Best Sellers</a></li>
+        <li><a href="/?section=bundles">Bundles</a></li>
+        <li><a href="/collections.html?collection=eco-home">Eco Home</a></li>
+        <li><a href="/collections.html?collection=eco-pet">Eco Pets</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="search-toggle" id="searchToggle" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="https://jv17sy-r4.myshopify.com/cart" class="cart-link" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </div>
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+    <button id="searchClose" aria-label="Close search">&times;</button>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- EXIT-INTENT POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" id="popupClose">&times;</button>
+    <div class="popup-content">
+      <h2>Welcome to PrismCollective</h2>
+      <p class="popup-subtitle">Get <strong>10% OFF</strong> your first order + <strong>5% OFF</strong> your second order</p>
+      <form class="popup-form" id="popupForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn-primary">Get My Discount</button>
+      </form>
+      <p class="popup-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="hero-slide" style="background: linear-gradient(135deg, #064E3B 0%, #059669 50%, #34D399 100%);">
+    <div class="hero-content">
+      <h1>Sustainable Living,<br>Naturally.</h1>
+      <p>Premium eco-friendly essentials for your home and pets. Thoughtfully sourced, beautifully designed.</p>
+      <a href="/?section=bestsellers" class="btn-hero">Shop Best Sellers</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS: ECO HOME -->
+<section class="section featured-section" id="featuredHome">
+  <div class="container">
+    <div class="section-header">
+      <h2>Eco Home Essentials</h2>
+      <p>Sustainable swaps for every room in your home</p>
+    </div>
+    <div class="product-grid" id="homeGrid"></div>
+    <div class="section-footer">
+      <a href="/collections.html?collection=eco-home" class="btn-outline">View All Eco Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS: ECO PET -->
+<section class="section featured-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Eco Pet Favorites</h2>
+      <p>Natural products your furry friends will love</p>
+    </div>
+    <div class="product-grid" id="petGrid"></div>
+    <div class="section-footer">
+      <a href="/collections.html?collection=eco-pet" class="btn-outline">View All Eco Pet</a>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="section bestsellers-section" id="bestsellers">
+  <div class="container">
+    <div class="section-header">
+      <h2>Best Sellers</h2>
+      <p>Our most-loved products by customers like you</p>
+    </div>
+    <div class="product-grid" id="bestsellersGrid"></div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section class="section bundles-section" id="bundles">
+  <div class="container">
+    <div class="section-header">
+      <h2>Curated Bundles</h2>
+      <p>Everything you need to start your sustainable journey</p>
+    </div>
+    <div class="bundles-grid">
+      <div class="bundle-card">
+        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S075e47a4752149a2bf63763ad8f93bd93.webp" alt="Starter Kitchen Kit" loading="lazy"></div>
+        <div class="bundle-info">
+          <h3>Starter Kitchen Kit</h3>
+          <p>Bamboo utensils, dishcloths, and silicone lids — everything you need to ditch single-use plastic.</p>
+          <span class="bundle-price">$64.97</span>
+          <span class="bundle-save">Save 15%</span>
+          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
+        </div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb862efa64c23441c86bba03c.webp" alt="Pet Starter Kit" loading="lazy"></div>
+        <div class="bundle-info">
+          <h3>Pet Starter Kit</h3>
+          <p>Bamboo feeder stand, grooming brush, silicone travel bowl, and cotton rope toys.</p>
+          <span class="bundle-price">$79.96</span>
+          <span class="bundle-save">Save 15%</span>
+          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
+        </div>
+      </div>
+      <div class="bundle-card">
+        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S201788c7cb9a46a7a3c6281c.webp" alt="Zero Waste Bath" loading="lazy"></div>
+        <div class="bundle-info">
+          <h3>Zero Waste Bath Bundle</h3>
+          <p>Bamboo toothbrushes, glass soap dispenser, and organic cotton produce bags.</p>
+          <span class="bundle-price">$53.97</span>
+          <span class="bundle-save">Save 15%</span>
+          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section mission-section">
+  <div class="container">
+    <div class="mission-content">
+      <h2>Designed for Tomorrow</h2>
+      <p>Every product in our collection is chosen with intention. We partner with suppliers who share our commitment to quality materials, ethical production, and thoughtful design. Sustainable living shouldn't mean sacrificing style or convenience.</p>
+      <div class="mission-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="31">0</span>
+          <span class="stat-label">Curated Products</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="9">0</span>
+          <span class="stat-label">Collections</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="100">0</span>
+          <span class="stat-label">% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section trust-section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Secure Checkout</h3>
+        <p>Protected by Shopify's enterprise-grade security</p>
+      </div>
+      <div class="trust-item">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <h3>Satisfaction Guarantee</h3>
+        <p>Not happy? We'll make it right</p>
+      </div>
+      <div class="trust-item">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <h3>Easy Returns</h3>
+        <p>30-day hassle-free return policy</p>
+      </div>
+      <div class="trust-item">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        <h3>Real Reviews</h3>
+        <p>Honest feedback from real customers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section newsletter-section">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Join the Collective</h2>
+      <p>Subscribe for exclusive offers, sustainability tips, and new product launches.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>PrismCollective</h3>
+        <p>Sustainable living, naturally. Premium eco-friendly essentials for your home and pets.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/collections.html?collection=eco-home">Eco Home</a></li>
+          <li><a href="/collections.html?collection=eco-pet">Eco Pet</a></li>
+          <li><a href="/collections.html?collection=shop-all">Shop All</a></li>
+          <li><a href="/?section=bestsellers">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/policies.html">Policies</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@prismcollective.us">hello@prismcollective.us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PrismCollective. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
