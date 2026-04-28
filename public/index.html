@@ -15,8 +15,7 @@
 <!-- HEADER -->
 <header id="main-header">
   <a href="#" class="logo">
-    <div class="logo-icon">🌿</div>
-    PrismCollective
+    <img src="logo.jpg" alt="PrismCollective" class="logo-img">
   </a>
   <nav id="main-nav">
     <a href="#hero">Home</a>
@@ -25,8 +24,14 @@
     <a href="#bundles">Bundles</a>
   </nav>
   <div class="header-right">
+    <button class="search-btn" id="search-btn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
     <button class="cart-btn" id="cart-btn" aria-label="Cart">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
         <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <path d="M16 10a4 4 0 01-8 0"></path>
@@ -84,26 +89,34 @@
     <div class="hero-visual">
       <div class="hero-card">
         <div class="hero-card-grid">
-          <div class="mini-card">
-            <div class="icon">🌱</div>
-            <strong>Bamboo</strong>
-            <p>Kitchen Sets</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon">🐾</div>
-            <strong>Pet Care</strong>
-            <p>Natural Grooming</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon">♻️</div>
-            <strong>Reusable</strong>
-            <p>Zero Waste</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon">🌿</div>
-            <strong>Organic</strong>
-            <p>Pet Treats</p>
-          </div>
+          <a href="#eco-home" class="mini-card mini-card-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0790/2926/3920/files/71f0vFo3-hL._AC_SL1500.jpg?v=1745338787')">
+            <div class="mini-overlay"></div>
+            <div class="mini-card-content">
+              <strong>Bamboo</strong>
+              <p>Kitchen Sets</p>
+            </div>
+          </a>
+          <a href="#eco-pet" class="mini-card mini-card-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0790/2926/3920/files/71i2G24KkNL._AC_SL1500.jpg?v=1745339654')">
+            <div class="mini-overlay"></div>
+            <div class="mini-card-content">
+              <strong>Pet Care</strong>
+              <p>Natural Grooming</p>
+            </div>
+          </a>
+          <a href="#eco-home" class="mini-card mini-card-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0790/2926/3920/files/91WF8O6WzLL._AC_SL1500.jpg?v=1745339359')">
+            <div class="mini-overlay"></div>
+            <div class="mini-card-content">
+              <strong>Reusable</strong>
+              <p>Zero Waste</p>
+            </div>
+          </a>
+          <a href="#eco-pet" class="mini-card mini-card-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0790/2926/3920/files/81-h9Uv2skL._AC_SL1500.jpg?v=1745339664')">
+            <div class="mini-overlay"></div>
+            <div class="mini-card-content">
+              <strong>Organic</strong>
+              <p>Pet Treats</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
