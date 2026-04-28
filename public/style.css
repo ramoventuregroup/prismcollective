@@ -337,10 +337,9 @@
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(6,78,59,0.88) 0%, rgba(5,150,101,0.72) 50%, rgba(16,185,129,0.4) 100%), url('hero-bg.jpg');
+    background: linear-gradient(135deg, rgba(6,78,59,0.55) 0%, rgba(5,150,101,0.35) 50%, rgba(16,185,129,0.15) 100%), url('hero-bg.jpg');
     background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
+    background-position: center 30%;
     display: flex;
     align-items: center;
     padding: 6rem 1.5rem 4rem;
@@ -390,6 +389,10 @@
   }
 
   .hero-text { max-width: 600px; }
+
+  .hero-text > *:not(.hero-ctas):not(.hero-stats):not(.hero-badge) {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
 
   .hero-badge {
     display: inline-flex;
@@ -1029,7 +1032,14 @@
     .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
   }
 
-  .footer-brand .logo { color: white; margin-bottom: 1rem; }
+  
+  @media (max-width: 767px) {
+    .hero { min-height: 90vh; background-position: center 20%; }
+  }
+  @media (max-width: 480px) {
+    .hero { min-height: 85vh; padding: 5rem 1rem 3rem; background-position: center 10%; }
+  }
+.footer-brand .logo { color: white; margin-bottom: 1rem; }
 
   .footer-brand p {
     font-size: 0.9rem;
