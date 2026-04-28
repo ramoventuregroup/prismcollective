@@ -1679,3 +1679,26 @@
   font-size: clamp(1.3rem, 3.5vw, 1.8rem);
   margin: 0;
 }
+
+  @media (max-width: 767px) {
+    header {
+      justify-content: space-between;
+    }
+    .logo-img { height: 46px; }
+    header.scrolled .logo-img { height: 40px; }
+    .header-left-search { margin-right: 0.5rem; }
+    .header-right { margin-left: auto; }
+  }
+
+  .popup-discount-second {
+    font-size: 1.6rem;
+    margin-top: 0.25rem;
+  }
+  .popup-order-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: -0.35rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
