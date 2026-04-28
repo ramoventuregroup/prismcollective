@@ -3,6 +3,7 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/collections/:collection", "destination": "/collections.html" },
     { "source": "/product/:handle", "destination": "/product.html" }
