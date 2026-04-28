@@ -337,7 +337,7 @@
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(6,78,59,0.55) 0%, rgba(5,150,101,0.35) 50%, rgba(16,185,129,0.15) 100%), url('hero-bg.jpg');
+    background: url('hero-bg.jpg');
     background-size: cover;
     background-position: center 30%;
     display: flex;
@@ -358,7 +358,7 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.15;
+    opacity: 0.08;
   }
 
   .blob-1 {
@@ -386,6 +386,14 @@
     display: grid;
     gap: 3rem;
     align-items: center;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
   }
 
   .hero-text { max-width: 600px; }
