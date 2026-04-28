@@ -17,9 +17,9 @@
 
   function getPriceHTML(price, compare) {
     if (compare && compare > price) {
-      return `<span class="product-price-old">$${compare.toFixed(2)}</span><span class="product-price">$${price.toFixed(2)}</span>`;
+      return `<span class="price-old">$${compare.toFixed(2)}</span><span class="price-current">$${price.toFixed(2)}</span>`;
     }
-    return `<span class="product-price">$${price.toFixed(2)}</span>`;
+    return `<span class="price-current">$${price.toFixed(2)}</span>`;
   }
 
   function getBadgeHTML(badges) {
@@ -27,46 +27,39 @@
     const map = { bestseller: 'Best Seller', onsale: 'Sale', limited: 'Limited' };
     return badges.map(b => {
       const cls = b === 'bestseller' ? '' : 'green';
-      return `<div class="product-badge ${cls}">${map[b] || b}</div>`;
+      return `<span class="product-badge ${cls}">${map[b] || b}</span>`;
     }).join('');
-  }
-
-  function addToCart(btn) {
-    cartCount++;
-    const badge = document.getElementById('cart-count');
-    badge.textContent = cartCount;
-    badge.classList.remove('bump');
-    void badge.offsetWidth;
-    badge.classList.add('bump');
-    setTimeout(() => badge.classList.remove('bump'), 300);
-    showToast('✅', 'Added to cart successfully!');
   }
 
   function getProductCard(product, delay) {
     const img = product.images && product.images[0]
       ? product.images[0]
       : 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill="%23ECFDF5"><rect width="400" height="400"/></svg>';
-    const checkoutUrl = `https://jv17sy-r4.myshopify.com/cart/${product.id}:1`;
+    const detailUrl = `product.html?handle=${product.handle}`;
+    const badges = getBadgeHTML(product.badges);
+    const stars = getStars(product.rating);
+    const price = getPriceHTML(product.price, product.compare_at);
+    const title = product.title.replace(/"/g, '&quot;');
+    const reviews = product.reviews || 0;
 
     return `
       <div class="product-card fade-in fade-in-delay-${delay || 1}">
-        <div class="product-img-wrap">
-          <a href="${checkoutUrl}">
-            <img src="${img}" alt="${product.title.replace(/"/g, '&quot;')}" loading="lazy">
-          </a>
-          ${getBadgeHTML(product.badges)}
-          <div class="product-wishlist">🤍</div>
-        </div>
-        <div class="product-body">
-          <h3 class="product-title">${product.title}</h3>
-          <div class="stars">
-            <span class="star">${getStars(product.rating)}</span>
-            <span class="rating-count">(${product.reviews || 0})</span>
+        <a href="${detailUrl}" class="product-card-link">
+          <div class="product-img-wrap">
+            <img src="${img}" alt="${title}" loading="lazy">
+            ${badges ? `<div class="product-badges">${badges}</div>` : ''}
           </div>
-          <div class="product-price-row">
-            <div>${getPriceHTML(product.price, product.compare_at)}</div>
-            <a href="${checkoutUrl}" class="add-cart-btn" aria-label="Add to cart">+</a>
+          <div class="product-body">
+            <h3 class="product-title">${title}</h3>
+            <div class="stars">
+              <span class="star">${stars}</span>
+              <span class="rating-count">(${reviews})</span>
+            </div>
+            ${price}
           </div>
+        </a>
+        <div class="product-actions">
+          <button class="quick-add-btn" data-pid="${product.id}">Quick Add</button>
         </div>
       </div>
     `;
@@ -89,27 +82,6 @@
 
     container.innerHTML = products.map((p, i) => getProductCard(p, (i % 4) + 1)).join('');
   }
-
-  // === EXISTING CLAUDE FUNCTIONS ===
-  let cartCount = 0;
-
-  let toastTimeout;
-  function showToast(icon, msg) {
-    const toast = document.getElementById('toast');
-    if (!toast) return;
-    const iconEl = document.getElementById('toast-icon');
-    const msgEl = document.getElementById('toast-msg');
-    if (iconEl) iconEl.textContent = icon;
-    if (msgEl) msgEl.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(hideToast, 3500);
-  }
-  function hideToast() {
-    const toast = document.getElementById('toast');
-    if (toast) toast.classList.remove('show');
-  }
-  window.hideToast = hideToast;
 
   // === INIT ===
   document.addEventListener('DOMContentLoaded', function() {
@@ -210,14 +182,11 @@
         if (e.target === popupOverlay) closePopup();
       });
 
-      // Show after 5 seconds
       setTimeout(showPopup, 5000);
-      // Exit intent
       document.addEventListener('mouseleave', (e) => {
         if (e.clientY < 10) showPopup();
       });
 
-      // Popup form
       const popupForm = document.querySelector('.popup-form');
       if (popupForm) {
         popupForm.addEventListener('submit', (e) => {
@@ -228,13 +197,20 @@
       }
     }
 
-    // Wishlist toggle
-    document.querySelectorAll('.product-wishlist').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.textContent = this.textContent === '🤍' ? '❤️' : '🤍';
-        if (this.textContent === '❤️') showToast('❤️', 'Added to wishlist!');
-      });
-    });
+    // Toast
+    window.showToast = function(icon, msg) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      const iconEl = document.getElementById('toast-icon');
+      const msgEl = document.getElementById('toast-msg');
+      if (iconEl) iconEl.textContent = icon;
+      if (msgEl) msgEl.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(window._toastTimeout);
+      window._toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    };
 
     // Keyboard escape
     document.addEventListener('keydown', (e) => {
@@ -254,7 +230,30 @@
   });
 
   // Expose for inline onclick
-  window.addToCart = addToCart;
-  window.showToast = showToast;
+  window.addToCart = function(productId) {
+    const url = `https://jv17sy-r4.myshopify.com/cart/${productId}:1`;
+    window.open(url, '_blank');
+  };
 
 })();
+
+// Quick add event delegation (defined outside IIFE to attach to future elements)
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.quick-add-btn');
+  if (btn) {
+    e.preventDefault();
+    const pid = btn.dataset.pid;
+    if (pid) {
+      const url = `https://jv17sy-r4.myshopify.com/cart/${pid}:1`;
+      window.open(url, '_blank');
+      const toast = document.getElementById('toast');
+      if (toast) {
+        document.getElementById('toast-icon').textContent = '✅';
+        document.getElementById('toast-msg').textContent = 'Added to cart!';
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
+      }
+    }
+  }
+});
