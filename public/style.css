@@ -129,7 +129,10 @@
     height: 52px;
     width: auto;
     display: block;
-    background: transparent;
+  }
+
+  header.scrolled .logo-img {
+    height: 44px;
   }
 
   header .header-left-search, .header-left-search {
@@ -155,17 +158,19 @@
 
   .mini-card-img {
     position: relative;
-    background-size: cover;
-    background-position: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     display: flex !important;
     align-items: flex-end;
     padding: 0 !important;
-    min-height: 120px;
+    min-height: 140px;
     border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   }
 
   .mini-card-img:hover {
