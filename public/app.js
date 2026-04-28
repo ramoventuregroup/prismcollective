@@ -1,543 +1,260 @@
 /* ============================================
-   PRISMCOLLECTIVE — Application JavaScript
-   Mobile-first | All interactions
+   PRISMCOLLECTIVE — App JavaScript
+   Claude design + real product data rendering
    ============================================ */
 
 (function() {
   'use strict';
 
-  const DATA = window.PRISM_DATA;
-  const SHOPIFY_STORE = 'jv17sy-r4';
-
-  /* --- Helpers --- */
-  function qs(s, ctx) { return (ctx||document).querySelector(s); }
-  function qsa(s, ctx) { return (ctx||document).querySelectorAll(s); }
-  function $id(id) { return document.getElementById(id); }
-
+  // === HELPERS ===
   function getStars(rating) {
+    if (!rating) rating = 4.5;
     const full = Math.floor(rating);
     const half = rating - full >= 0.5 ? 1 : 0;
     const empty = 5 - full - half;
-    return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+    return '★'.repeat(full) + (half ? '★' : '') + '☆'.repeat(empty);
+  }
+
+  function getPriceHTML(price, compare) {
+    if (compare && compare > price) {
+      return `<span class="product-price-old">$${compare.toFixed(2)}</span><span class="product-price">$${price.toFixed(2)}</span>`;
+    }
+    return `<span class="product-price">$${price.toFixed(2)}</span>`;
   }
 
   function getBadgeHTML(badges) {
     if (!badges || !badges.length) return '';
     const map = { bestseller: 'Best Seller', onsale: 'Sale', limited: 'Limited' };
     return badges.map(b => {
-      const cls = `badge-${b}`;
-      return `<span class="badge ${cls}">${map[b] || b}</span>`;
+      const cls = b === 'bestseller' ? '' : 'green';
+      return `<div class="product-badge ${cls}">${map[b] || b}</div>`;
     }).join('');
   }
 
-  function getPriceHTML(price, compare) {
-    if (compare && compare > price) {
-      return `<span class="price-current">$${price.toFixed(2)}</span><span class="price-compare">$${compare.toFixed(2)}</span>`;
-    }
-    return `<span class="price-current">$${price.toFixed(2)}</span>`;
+  function addToCart(btn) {
+    cartCount++;
+    const badge = document.getElementById('cart-count');
+    badge.textContent = cartCount;
+    badge.classList.remove('bump');
+    void badge.offsetWidth;
+    badge.classList.add('bump');
+    setTimeout(() => badge.classList.remove('bump'), 300);
+    showToast('✅', 'Added to cart successfully!');
   }
 
-  function getProductCard(product) {
-    const img = product.images && product.images[0] ? product.images[0] : '';
+  function getProductCard(product, delay) {
+    const img = product.images && product.images[0]
+      ? product.images[0]
+      : 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill="%23ECFDF5"><rect width="400" height="400"/></svg>';
+    const checkoutUrl = `https://jv17sy-r4.myshopify.com/cart/${product.id}:1`;
+
     return `
-      <a href="/product.html?handle=${product.handle}" class="product-card fade-in">
-        <div class="product-card__image-wrapper">
-          <img src="${img}" alt="${product.title}" loading="lazy">
-          <div class="product-card__badges">${getBadgeHTML(product.badges)}</div>
+      <div class="product-card fade-in fade-in-delay-${delay || 1}">
+        <div class="product-img-wrap">
+          <a href="${checkoutUrl}">
+            <img src="${img}" alt="${product.title.replace(/"/g, '&quot;')}" loading="lazy">
+          </a>
+          ${getBadgeHTML(product.badges)}
+          <div class="product-wishlist">🤍</div>
         </div>
-        <div class="product-card__info">
-          <div class="product-card__title">${product.title}</div>
-          <div class="product-card__rating">
-            <span class="stars">${getStars(product.rating || 4.5)}</span>
-            <span class="review-count">(${product.reviews || 0})</span>
+        <div class="product-body">
+          <h3 class="product-title">${product.title}</h3>
+          <div class="stars">
+            <span class="star">${getStars(product.rating)}</span>
+            <span class="rating-count">(${product.reviews || 0})</span>
           </div>
-          <div class="product-card__price">${getPriceHTML(product.price, product.compare_at)}</div>
+          <div class="product-price-row">
+            <div>${getPriceHTML(product.price, product.compare_at)}</div>
+            <a href="${checkoutUrl}" class="add-cart-btn" aria-label="Add to cart">+</a>
+          </div>
         </div>
-      </a>
+      </div>
     `;
   }
 
-  function renderProductGrid(containerId, products) {
-    const container = $id(containerId);
+  function renderProducts(containerId, collectionHandle, count) {
+    const container = document.getElementById(containerId);
     if (!container) return;
-    container.innerHTML = products.map(getProductCard).join('');
-    setTimeout(() => {
-      qsa('.fade-in', container).forEach(el => el.classList.add('visible'));
-    }, 100);
+
+    const col = PRISM_DATA.collections[collectionHandle];
+    if (!col) return;
+
+    const handles = col.product_handles || [];
+    const products = handles
+      .map(h => PRISM_DATA.products.find(p => p.handle === h))
+      .filter(Boolean)
+      .slice(0, count || 8);
+
+    if (!products.length) return;
+
+    container.innerHTML = products.map((p, i) => getProductCard(p, (i % 4) + 1)).join('');
   }
 
-  function scrollToSection(section) {
-    const map = {
-      'bestsellers': 'bestsellers',
-      'bundles': 'bundles',
-      'eco-home': 'featuredHome',
-      'eco-pet': 'petGrid'
-    };
-    const targetId = map[section];
-    if (targetId) {
-      const el = $id(targetId) || document.querySelector(`[data-section="${section}"]`);
-      if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-      }
-    }
+  // === EXISTING CLAUDE FUNCTIONS ===
+  let cartCount = 0;
+
+  let toastTimeout;
+  function showToast(icon, msg) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    const iconEl = document.getElementById('toast-icon');
+    const msgEl = document.getElementById('toast-msg');
+    if (iconEl) iconEl.textContent = icon;
+    if (msgEl) msgEl.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(hideToast, 3500);
   }
-
-  /* --- Hamburger Menu --- */
-  function initHamburger() {
-    const btn = $id('hamburgerBtn');
-    const nav = $id('headerNav');
-    const overlay = $id('navOverlay');
-    if (!btn || !nav) return;
-
-    function closeMenu() {
-      btn.classList.remove('active');
-      nav.classList.remove('open');
-      if (overlay) overlay.classList.remove('open');
-    }
-
-    btn.addEventListener('click', () => {
-      const isOpen = nav.classList.contains('open');
-      if (isOpen) { closeMenu(); }
-      else {
-        btn.classList.add('active');
-        nav.classList.add('open');
-        if (overlay) overlay.classList.add('open');
-      }
-    });
-
-    if (overlay) overlay.addEventListener('click', closeMenu);
-
-    // Close on nav link click
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  function hideToast() {
+    const toast = document.getElementById('toast');
+    if (toast) toast.classList.remove('show');
   }
+  window.hideToast = hideToast;
 
-  /* --- Search Toggle --- */
-  function initSearch() {
-    const toggle = $id('searchToggle');
-    const bar = $id('searchBar');
-    const input = $id('searchInput');
-    const close = $id('searchClose');
-    if (!toggle || !bar) return;
+  // === INIT ===
+  document.addEventListener('DOMContentLoaded', function() {
+    // Render product grids
+    renderProducts('eco-home-grid', 'eco-home', 8);
+    renderProducts('eco-pet-grid', 'eco-pet', 8);
 
-    toggle.addEventListener('click', () => {
-      bar.classList.toggle('open');
-      if (bar.classList.contains('open') && input) { input.focus(); }
-    });
-
-    if (close) close.addEventListener('click', () => bar.classList.remove('open'));
-
-    if (input) {
-      input.addEventListener('input', () => {
-        const q = input.value.toLowerCase().trim();
-        if (q.length < 2) return;
-        const results = DATA.products.filter(p =>
-          p.title.toLowerCase().includes(q) || (p.tags||[]).some(t => t.toLowerCase().includes(q))
-        ).slice(0, 5);
-        // Show results — for simplicity, navigate to shop-all with search param
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
       });
-
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const q = input.value.trim();
-          if (q) window.location.href = `/collections.html?collection=shop-all&q=${encodeURIComponent(q)}`;
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('open') &&
+            !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
         }
       });
     }
-  }
 
-  /* --- Exit Intent Popup --- */
-  function initPopup() {
-    const overlay = $id('popupOverlay');
-    if (!overlay) return;
-    const close = $id('popupClose');
-    const form = $id('popupForm');
-
-    // Check cookie
-    if (document.cookie.includes('prism_popup=')) return;
-
-    function showPopup() {
-      overlay.classList.add('open');
+    // Scroll glass header
+    const header = document.getElementById('main-header');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+      }, { passive: true });
     }
 
-    function hidePopup() {
-      overlay.classList.remove('open');
-      document.cookie = 'prism_popup=1; max-age=' + (30*24*60*60) + '; path=/';
-    }
-
-    // Show after 5 seconds
-    setTimeout(showPopup, 5000);
-
-    // Exit intent
-    document.addEventListener('mouseleave', (e) => {
-      if (e.clientY <= 0 && !overlay.classList.contains('open') && !document.cookie.includes('prism_popup=')) {
-        showPopup();
-      }
-    });
-
-    if (close) close.addEventListener('click', hidePopup);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) hidePopup();
-    });
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = form.querySelector('input[type="email"]').value;
-        if (email) {
-          hidePopup();
-          showToast('Check your email for your discount code!');
-          // Could also POST to Shopify customer API
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
         }
       });
-    }
-  }
-
-  /* --- Newsletter --- */
-  function initNewsletter() {
-    const form = $id('newsletterForm');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value;
-      if (email) {
-        showToast('Thanks for joining! Check your inbox.');
-        form.reset();
-      }
     });
-  }
 
-  /* --- FAQ Accordion --- */
-  function initFAQ() {
-    qsa('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        if (!item) return;
-        const isOpen = item.classList.contains('open');
-
-        // Close all others
-        qsa('.faq-item.open').forEach(i => i.classList.remove('open'));
-
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-  }
-
-  /* --- Scroll Animations --- */
-  function initScrollAnimation() {
-    const els = qsa('.fade-in');
-    if (!els.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
+    // Intersection Observer fade-in
+    const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          fadeObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-    els.forEach(el => observer.observe(el));
-  }
-
-  /* --- Counter Animation --- */
-  function initCounters() {
-    qsa('.stat-number').forEach(el => {
-      const target = parseInt(el.dataset.target);
-      if (!target) return;
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(el, target);
-            observer.unobserve(el);
-          }
-        });
-      }, { threshold: 0.5 });
-      observer.observe(el);
-    });
-
-    function animateCounter(el, target) {
-      let current = 0;
-      const step = Math.ceil(target / 30);
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(interval);
+    // Newsletter
+    const newsForm = document.getElementById('newsletter-form');
+    if (newsForm) {
+      newsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email');
+        if (!email || !email.value || !email.value.includes('@')) {
+          showToast('⚠️', 'Please enter a valid email address.');
+          return;
         }
-        el.textContent = current + (target === 100 ? '%' : '');
-      }, 40);
-    }
-  }
-
-  /* --- Toast --- */
-  function showToast(message) {
-    let toast = document.querySelector('.toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.add('visible');
-    clearTimeout(toast._hide);
-    toast._hide = setTimeout(() => toast.classList.remove('visible'), 3000);
-  }
-
-  /* --- Product Page --- */
-  function initProductPage() {
-    const params = new URLSearchParams(window.location.search);
-    const handle = params.get('handle');
-    if (!handle) return;
-
-    const product = DATA.products.find(p => p.handle === handle);
-    if (!product) {
-      qs('.product-page .container').innerHTML = '<p>Product not found.</p>';
-      return;
+        email.value = '';
+        showToast('💚', 'Welcome to the green family! Check your inbox.');
+      });
     }
 
-    // Set title
-    document.title = product.title + ' — PrismCollective';
-    const bt = $id('breadcrumbTitle');
-    if (bt) bt.textContent = product.title;
+    // Exit intent popup
+    let popupShown = false;
+    const popupOverlay = document.getElementById('popup-overlay');
+    if (popupOverlay) {
+      function showPopup() {
+        if (!popupShown) {
+          popupShown = true;
+          popupOverlay.classList.add('show');
+        }
+      }
+      function closePopup() {
+        popupOverlay.classList.remove('show');
+      }
+      window.closePopup = closePopup;
 
-    // Set badges
-    const badgeEl = $id('productBadges');
-    if (badgeEl) badgeEl.innerHTML = getBadgeHTML(product.badges);
+      const closeBtn = document.getElementById('popup-close');
+      if (closeBtn) closeBtn.addEventListener('click', closePopup);
+      popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) closePopup();
+      });
 
-    // Set title
-    const titleEl = $id('productTitle');
-    if (titleEl) titleEl.textContent = product.title;
+      // Show after 5 seconds
+      setTimeout(showPopup, 5000);
+      // Exit intent
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 10) showPopup();
+      });
 
-    // Rating
-    const ratingEl = $id('productRating');
-    if (ratingEl) {
-      ratingEl.innerHTML = `<span class="stars">${getStars(product.rating || 4.5)}</span> <span>${product.rating || 4.5}</span> <span class="review-count">(${product.reviews || 0} reviews)</span>`;
-    }
-
-    // Price
-    const priceEl = $id('productPrice');
-    if (priceEl) priceEl.innerHTML = getPriceHTML(product.price, product.compare_at);
-
-    // Description
-    const descEl = $id('productDesc');
-    if (descEl) descEl.innerHTML = `<p>${product.description}</p>`;
-
-    // Gallery
-    const mainImg = $id('mainImage');
-    const thumbs = $id('galleryThumbs');
-    if (mainImg && product.images.length) {
-      mainImg.src = product.images[0] + '&width=600';
-      mainImg.alt = product.title;
-
-      if (thumbs) {
-        product.images.forEach((img, i) => {
-          const thumb = document.createElement('img');
-          thumb.src = img + '&width=100';
-          thumb.alt = product.title + ' ' + (i+1);
-          if (i === 0) thumb.classList.add('active');
-          thumb.addEventListener('click', () => {
-            mainImg.src = img + '&width=600';
-            thumbs.querySelectorAll('img').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-          });
-          thumbs.appendChild(thumb);
+      // Popup form
+      const popupForm = document.querySelector('.popup-form');
+      if (popupForm) {
+        popupForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          closePopup();
+          showToast('🎉', 'Your discount code: PRISM10 — saved!');
         });
       }
     }
 
-    // Quantity
-    const qtyInput = $id('qtyInput');
-    const qtyMinus = $id('qtyMinus');
-    const qtyPlus = $id('qtyPlus');
-    if (qtyMinus && qtyPlus && qtyInput) {
-      qtyMinus.addEventListener('click', () => {
-        if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+    // Wishlist toggle
+    document.querySelectorAll('.product-wishlist').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.textContent = this.textContent === '🤍' ? '❤️' : '🤍';
+        if (this.textContent === '❤️') showToast('❤️', 'Added to wishlist!');
       });
-      qtyPlus.addEventListener('click', () => {
-        if (parseInt(qtyInput.value) < 99) qtyInput.value = parseInt(qtyInput.value) + 1;
-      });
-    }
-
-    // Get variant ID from product data or fallback
-    function getVariantQuantity() {
-      return parseInt(qtyInput ? qtyInput.value : 1);
-    }
-
-    function buildCheckoutUrl() {
-      return `https://${SHOPIFY_STORE}.myshopify.com/cart/${product.id}:${getVariantQuantity()}`;
-    }
-
-    // Add to Cart
-    const addBtn = $id('addToCartBtn');
-    if (addBtn) {
-      addBtn.addEventListener('click', () => {
-        window.location.href = buildCheckoutUrl();
-      });
-    }
-
-    // Buy Now
-    const buyBtn = $id('buyNowBtn');
-    if (buyBtn) {
-      buyBtn.addEventListener('click', () => {
-        window.location.href = buildCheckoutUrl();
-      });
-    }
-
-    // Sticky cart
-    const stickyAdd = $id('stickyAddBtn');
-    if (stickyAdd) {
-      stickyAdd.addEventListener('click', () => {
-        window.location.href = buildCheckoutUrl();
-      });
-    }
-    const stickyPrice = $id('stickyPrice');
-    if (stickyPrice) {
-      stickyPrice.textContent = '$' + product.price.toFixed(2);
-    }
-
-    // Related products — same type/collections
-    const related = DATA.products
-      .filter(p => p.handle !== handle && p.collections.some(c => (product.collections||[]).includes(c)))
-      .slice(0, 4);
-    if (related.length) {
-      renderProductGrid('relatedGrid', related);
-    }
-  }
-
-  /* --- Collections Page --- */
-  function initCollectionsPage() {
-    const params = new URLSearchParams(window.location.search);
-    const collHandle = params.get('collection') || 'shop-all';
-    const searchQ = params.get('q') || '';
-
-    const col = DATA.collections[collHandle];
-    if (!col) return;
-
-    // Title
-    const titleEl = $id('collectionTitle');
-    if (titleEl) titleEl.textContent = col.title;
-
-    // Collection nav
-    const nav = $id('collectionNav');
-    if (nav) {
-      Object.entries(DATA.collections).forEach(([handle, c]) => {
-        const a = document.createElement('a');
-        a.href = `/collections.html?collection=${handle}`;
-        a.textContent = c.title;
-        if (handle === collHandle) a.classList.add('active');
-        nav.appendChild(a);
-      });
-    }
-
-    // Products
-    const handles = col.product_handles || [];
-    const products = handles
-      .map(h => DATA.products.find(p => p.handle === h))
-      .filter(Boolean);
-
-    // Search filter
-    let filtered = products;
-    if (searchQ) {
-      const q = searchQ.toLowerCase();
-      filtered = products.filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        (p.tags||[]).some(t => t.toLowerCase().includes(q))
-      );
-    }
-
-    renderProductGrid('collectionGrid', filtered);
-  }
-
-  /* --- Homepage initializations --- */
-  function initHomepage() {
-    const params = new URLSearchParams(window.location.search);
-    const section = params.get('section');
-    if (section) {
-      scrollToSection(section);
-    }
-
-    // Eco Home grid (first 8)
-    const homeHandles = (DATA.collections['eco-home'] && DATA.collections['eco-home'].product_handles) || [];
-    const homeProducts = homeHandles.map(h => DATA.products.find(p => p.handle === h)).filter(Boolean).slice(0, 8);
-    renderProductGrid('homeGrid', homeProducts);
-
-    // Eco Pet grid (first 8)
-    const petHandles = (DATA.collections['eco-pet'] && DATA.collections['eco-pet'].product_handles) || [];
-    const petProducts = petHandles.map(h => DATA.products.find(p => p.handle === h)).filter(Boolean).slice(0, 8);
-    renderProductGrid('petGrid', petProducts);
-
-    // Best Sellers grid
-    const bestsellers = DATA.products.filter(p => (p.badges||[]).includes('bestseller')).slice(0, 8);
-    renderProductGrid('bestsellersGrid', bestsellers);
-  }
-
-  /* --- Cart count --- */
-  function initCartCount() {
-    // Could track via localStorage or cookie
-    const count = $id('cartCount');
-    if (!count) return;
-    // Try to detect if there's a cart count via URL params
-    // For now keep it at 0
-  }
-
-  /* --- Contact Form --- */
-  function initContactForm() {
-    const form = $id('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('Message sent! We\'ll get back to you soon.');
-      form.reset();
     });
-  }
 
-  /* --- Sticky Cart Visibility --- */
-  function initStickyCart() {
-    const sticky = document.querySelector('.sticky-cart');
-    if (!sticky) return;
-    // Show when scrolled past buy buttons
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        sticky.classList.toggle('visible', !entry.isIntersecting);
-      });
-    }, { threshold: 0 });
-    const mainActions = document.querySelector('.product-actions');
-    if (mainActions) observer.observe(mainActions);
-  }
+    // Keyboard escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (popupOverlay) popupOverlay.classList.remove('show');
+        if (mobileNav) {
+          mobileNav.classList.remove('open');
+          if (hamburger) hamburger.classList.remove('open');
+        }
+      }
+    });
 
-  /* --- Init --- */
-  document.addEventListener('DOMContentLoaded', () => {
-    initHamburger();
-    initSearch();
-    initPopup();
-    initNewsletter();
-    initFAQ();
-    initScrollAnimation();
-    initCounters();
-    initContactForm();
-    initCartCount();
-
-    const path = window.location.pathname;
-
-    if (path === '/' || path === '' || path.endsWith('index.html')) {
-      initHomepage();
-    } else if (path.includes('product.html')) {
-      initProductPage();
-      initStickyCart();
-    } else if (path.includes('collections.html')) {
-      initCollectionsPage();
-    }
+    // Re-observe fade-in after dynamic content loads
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    }, 200);
   });
 
-  // Re-run scroll animation for dynamically loaded content
-  window.addEventListener('load', () => {
-    initScrollAnimation();
-    // Mark visible elements that are already in viewport
-    qsa('.fade-in').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) el.classList.add('visible');
-    });
-  });
+  // Expose for inline onclick
+  window.addToCart = addToCart;
+  window.showToast = showToast;
 
 })();

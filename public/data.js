@@ -3,6 +3,7 @@
 const PRISM_DATA = {
   "products": [
     {
+      "id": 7958584950832,
       "handle": "7-piece-bamboo-kitchen-utensil-set-with-holder",
       "title": "7-Piece Bamboo Kitchen Utensil Set with Holder",
       "type": "Eco Home",
@@ -17,6 +18,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S075e47a4752149a2bf63763ad8f93bd93.webp?v=1777369703", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S7c0f69e667f74afcbb023f37dc3a4f13Q.webp?v=1777369705", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb0c8a81268cc4811ac5b1f1535c7bb8fR.webp?v=1777369707"]
     },
     {
+      "id": 7958585081904,
       "handle": "adjustable-bamboo-pet-feeder-stand-with-stainless-bowls",
       "title": "Adjustable Bamboo Pet Feeder Stand with Stainless Bowls",
       "type": "Eco Pet",
@@ -31,6 +33,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S4333ce8f1ef24b49945fe1eb8acca06fK.webp?v=1777369713", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S89bb8c24e192445b955d05d24f1a545e2.webp?v=1777369715", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sfe314d9f50124465bee3b1e89bfe523fi.webp?v=1777369716"]
     },
     {
+      "id": 7958583443504,
       "handle": "bamboo-knife-block-universal-7-slot-storage",
       "title": "Bamboo Knife Block \u2014 Universal 7-Slot Storage",
       "type": "Eco Home",
@@ -45,6 +48,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sc3edcaf940764d5cb5f96b25c1c58e89g_cec7855b-6c19-4c92-9f2e-9c3b274103bf.webp?v=1777369788", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sca019bc9317043aea3fb541c17feceb0b_0635481e-597f-4033-80cd-71161a8a97cf.webp?v=1777369789", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S60e0b89e9e264725be0e17cfe2adc903f_64c0cbf0-0cb4-46ed-8f20-e3effacff617.webp?v=1777369790"]
     },
     {
+      "id": 7958582788144,
       "handle": "bamboo-paper-towel-holder-countertop-dispenser",
       "title": "Bamboo Paper Towel Holder \u2014 Countertop Dispenser",
       "type": "Eco Home",
@@ -59,6 +63,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb13568b4a3ad4e5f91f79d1db68a9d57l_48045016-2d2d-4b31-9bed-35ba72a42079.webp?v=1777369829", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S049a452b11704c51979ed8b9197a780fw_c32a535d-1ec0-47d2-b6eb-f23c98e6bfbf.webp?v=1777369830", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sf4baf10d1b444793a06ef9c56d80710bj_b3f6a021-ebea-4fa3-8376-3ac0a6679e9d.webp?v=1777369831"]
     },
     {
+      "id": 7958583869488,
       "handle": "bamboo-pet-grooming-brush-shedding-deshedding",
       "title": "Bamboo Pet Grooming Brush \u2014 Shedding & Deshedding",
       "type": "Eco Pet",
@@ -73,6 +78,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S630aad03fa9a4be2b3fdb0e3a6f5e1e72_82633cb6-ff81-4fb6-a337-e16da3c684f6.webp?v=1777369837", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S688ba39c68144104a05d2ee68ced5fcaf_5cae3416-e57b-4b0c-91f6-05ef3b63692f.webp?v=1777369839", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S26d79b049bf449dda186a3b90510ee23n_4596cb9d-de93-4bec-b521-7590fe19d2f1.webp?v=1777369840"]
     },
     {
+      "id": 7958583967792,
       "handle": "bamboo-pet-treat-storage-jar-with-airtight-lid",
       "title": "Bamboo Pet Treat Storage Jar with Airtight Lid",
       "type": "Eco Pet",
@@ -87,6 +93,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/71fyg1crecL_235d3233-355f-4883-a6d3-59b7fa19a12e.jpg?v=1777374712", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/71FYFo0ZjXL_59b67f59-5945-40fc-b8b3-fe80c5e9a2a5.jpg?v=1777374714", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/il_570xN.4751515689_1eto_c5323ee0-9523-499d-b21f-721d4811e6e3.jpg?v=1777374716"]
     },
     {
+      "id": 7958584229936,
       "handle": "biodegradable-dog-poop-bags-lavender-scented-rolls-box",
       "title": "Biodegradable Dog Poop Bags \u2014 Lavender Scented (Rolls/Box)",
       "type": "Eco Pet",
@@ -101,6 +108,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S99117141d6e74026872b52a7d1c0d0d5e.webp?v=1777369924", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S80b6a535c2cc4bbf81cce2d159474da76.webp?v=1777369925", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd56723473e3449269c10c6750df87541P.webp?v=1777369926"]
     },
     {
+      "id": 7958581936176,
       "handle": "collapsible-bamboo-dish-drying-rack-with-utensil-holder",
       "title": "Collapsible Bamboo Dish Drying Rack with Utensil Holder",
       "type": "Eco Home",
@@ -115,6 +123,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S6a9f6c9c3cbc42019de404980b84c8f8o_ff03d750-df88-4639-8012-b4f5d9c4f7bc.webp?v=1777369934", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Se8388840ea8744f797a700771240ac80W_aa2fc268-9490-4da7-b46e-308787d2fa89.webp?v=1777369935", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S47e75460404941e2b9ba5fa03ee66ad9r_0733e9bd-7e0b-4e53-89c1-4995dbfc630e.webp?v=1777369936"]
     },
     {
+      "id": 7958584033328,
       "handle": "collapsible-silicone-pet-travel-bowl-portable",
       "title": "Collapsible Silicone Pet Travel Bowl \u2014 Portable",
       "type": "Eco Pet",
@@ -129,6 +138,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S297314c6e952415587fff6c81e43bcd03.webp?v=1777369942", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Scef9fa0827964cd18d92069b88c51b611.webp?v=1777369944", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd974ca8e42924a5ab42a8aa32513e65cj.webp?v=1777369945"]
     },
     {
+      "id": 7958582427696,
       "handle": "compostable-trash-bags-13-gallon-30-60-90-count",
       "title": "Compostable Trash Bags \u2014 13 Gallon (30/60/90 Count)",
       "type": "Eco Home",
@@ -143,6 +153,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S088eeca88b764f44961bb69790aeb4c2s.webp?v=1777369953", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S3f7f508905f74d439e7ca4e534bbdae0H.webp?v=1777369955", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S964868ae5bd84a8a8046c6912f389db7I.webp?v=1777369957"]
     },
     {
+      "id": 7958583803952,
       "handle": "cotton-rope-dog-toy-natural-knot-chew-3-pack",
       "title": "Cotton Rope Dog Toy \u2014 Natural Knot Chew (3 Pack)",
       "type": "Eco Pet",
@@ -157,6 +168,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sde6853dc02684e318101530da6b6780eQ.webp?v=1777369974", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S53974b048af44fb6aa251a083c971893E.webp?v=1777369975", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S4b7034118fda42d8bdd564784487d15b1.webp?v=1777369977"]
     },
     {
+      "id": 7958584328240,
       "handle": "eco-cat-scratcher-recycled-cardboard-3-pack",
       "title": "Eco Cat Scratcher \u2014 Recycled Cardboard (3 Pack)",
       "type": "Eco Pet",
@@ -171,6 +183,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Se1cd555c87a04056b762a43c8b2f238fm.webp?v=1777369985", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S23c20bcb1a8a469a867314fcc4c1419bE.webp?v=1777369986", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S4ea9ac43691a423393040adc7df8bcd74.webp?v=1777369988"]
     },
     {
+      "id": 7958583541808,
       "handle": "elevated-ceramic-pet-bowls-with-bamboo-stand",
       "title": "Elevated Ceramic Pet Bowls with Bamboo Stand",
       "type": "Eco Pet",
@@ -185,6 +198,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb862efa64c23441c86bba03cfbdddd75c.webp?v=1777369994", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S20c9dfa2e286402bbe11d730b9f0d95cP.webp?v=1777369996", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd3b0fe1d0d7d47208124c287efe3728el.webp?v=1777369997"]
     },
     {
+      "id": 7958584983600,
       "handle": "glass-soap-dispenser-with-bamboo-pump",
       "title": "Glass Soap Dispenser with Bamboo Pump",
       "type": "Eco Home",
@@ -199,6 +213,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S201788c7cb9a46a7a3c6281c0ab1fab3Z_30487ee0-b51b-4d4a-92e6-f6755fd478c7.webp?v=1777370023", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sa3c4e8513eff4f1fb578f267b94852430_c80a49ad-258e-4774-ac59-79179525f3fe.webp?v=1777370024", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb1fbd123f64643bb8c355909d3fcac185_55efbd35-686c-46b5-a0cc-daa2e3983136.webp?v=1777370025"]
     },
     {
+      "id": 7958584459312,
       "handle": "jute-rope-cat-scratching-tool-wall-mounted",
       "title": "Jute Rope Cat Scratching Tool \u2014 Wall Mounted",
       "type": "Eco Pet",
@@ -213,6 +228,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sbf1e139508504e26af3bb804836c5cd5A.webp?v=1777370032", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd95a4faf6b614d9aa90cd7318332df5eR.webp?v=1777370033", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S833eda0059df472b8e9c49027aee965dq.webp?v=1777370035"]
     },
     {
+      "id": 7958585049136,
       "handle": "large-bamboo-cutting-board-with-deep-juice-groove",
       "title": "Large Bamboo Cutting Board with Deep Juice Groove",
       "type": "Eco Home",
@@ -227,6 +243,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sa95c6a7a93f34c6fbb767d51a9cb34cdN_d9da7d40-92cb-4bf0-8c0d-92fe12ab6b38.webp?v=1777370051", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Seaea1df2ac844aba94841f2e803f37266_e905be88-3861-4412-a993-0ae6119d9b15.webp?v=1777370052", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S5cd431c12fbc4fbdb667d49be488b7e7Y_ba41542a-e072-4412-98f2-be011ecf5adb.webp?v=1777370054"]
     },
     {
+      "id": 7958583312432,
       "handle": "natural-bamboo-tissue-box-cover-wooden-dispenser",
       "title": "Natural Bamboo Tissue Box Cover \u2014 Wooden Dispenser",
       "type": "Eco Home",
@@ -241,6 +258,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S59b4151842d64d2b9183922a5761e2ccI_65232aa1-deb5-4184-95e6-188bb2a04aeb.webp?v=1777370086", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sfa1156a7df584292ac2a48748f379d274_6a6af9a8-8726-4015-ab80-bc4ec69dc4b1.webp?v=1777370087", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S3f740c9b6646412982b95e96870d29abq_1d268592-8711-4b9e-9ff7-b3c41f8640e7.webp?v=1777370089"]
     },
     {
+      "id": 7958582558768,
       "handle": "natural-cork-coasters-set-4-6-12-pack",
       "title": "Natural Cork Coasters Set (4/6/12 Pack)",
       "type": "Eco Home",
@@ -255,6 +273,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S9bb5dbe1c30246be8c67e8a3f5440202h.webp?v=1777370094", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S1dda4d60a70e46008d385659ba3a5e5ag.webp?v=1777370096", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S27133e9d8cde42a7b50f9c3c003af051G.webp?v=1777370097"]
     },
     {
+      "id": 7958582296624,
       "handle": "natural-loofah-kitchen-sponges-biodegradable-5-10-pack",
       "title": "Natural Loofah Kitchen Sponges \u2014 Biodegradable (5/10 Pack)",
       "type": "Eco Home",
@@ -269,6 +288,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd6cb99f3d52441e38c3b0b7ec4c30c94G_078101ef-3d3e-4776-ae1d-e026a9b4a5e4.webp?v=1777370111", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S35b136127f504f708f8e95c054005301n_6f1f531a-fac8-4e57-abcf-a2c3a169f9ea.webp?v=1777370113", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S6972d7ec01ac47a595e3b47556f6334f4_ee69b1d8-36ae-4059-b418-1712ab838e07.webp?v=1777370114"]
     },
     {
+      "id": 7958584197168,
       "handle": "natural-rubber-dog-glow-ball-eco-fetch-toy",
       "title": "Natural Rubber Dog Glow Ball \u2014 Eco Fetch Toy",
       "type": "Eco Pet",
@@ -283,6 +303,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sffd60f14f0d54d0b9041259fc91257bcb.webp?v=1777370127", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Se6a36ab798f14c579ef55274880819a4x.webp?v=1777370128", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sef730a8661384aa4bc6f3d2d08d5a12cQ.webp?v=1777370130"]
     },
     {
+      "id": 7958585147440,
       "handle": "natural-rubber-dog-tire-squeaky-toy-eco-friendly",
       "title": "Natural Rubber Dog Tire Squeaky Toy \u2014 Eco-Friendly",
       "type": "Eco Pet",
@@ -297,6 +318,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S3871a5f526f146a3a1ef017d3217859bT.webp?v=1777370136", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S2f77a32cb3034bf68f1a709f7ca527fef.webp?v=1777370137", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sd2ccd242ac6d4266865dfa7f77706841K.webp?v=1777370139"]
     },
     {
+      "id": 7958583181360,
       "handle": "organic-bamboo-toothbrush-set-10-20-pack",
       "title": "Organic Bamboo Toothbrush Set (10/20 Pack)",
       "type": "Eco Home",
@@ -311,6 +333,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S1ff36710c5394f62a0b63a6a774cb528L_6c9f906d-28d8-4114-9779-ed32cab12756.webp?v=1777370156", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sc909c79170cb42038c193787976beeafG_062a4558-a08b-4606-b7be-3d69da06d0d0.webp?v=1777370158", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S8f8fdd4bb8784d3192b5f02a716205c6V_40656dd5-79db-4bbc-86a5-0a77b9ec282b.webp?v=1777370159"]
     },
     {
+      "id": 7958582100016,
       "handle": "organic-cotton-reusable-produce-bags-3-6-10-pack",
       "title": "Organic Cotton Reusable Produce Bags (3/6/10 Pack)",
       "type": "Eco Home",
@@ -325,6 +348,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S3738f13ccf1f4fa391fb55fee5c75280I_f2da1903-d2e7-475f-acdb-514df3b79541.webp?v=1777370165", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S8f92534b3026401384c10a3ca0b12535U_d58e8d05-27e7-4ba7-906a-fcb4cb601c61.webp?v=1777370166", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb04ace95da6a4ad5bab627e99de41a44c_ec22ee87-3c3d-4455-84a3-668b05b9e76a.webp?v=1777370168"]
     },
     {
+      "id": 7958583607344,
       "handle": "premium-silicone-pet-feeding-mat-non-slip-s-m-l-xl",
       "title": "Premium Silicone Pet Feeding Mat \u2014 Non-Slip (S/M/L/XL)",
       "type": "Eco Pet",
@@ -339,6 +363,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb265b48224c242e386576c42429dbfc34.webp?v=1777370183", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S91a00837255544aca63a1ab6cf600e0fh.webp?v=1777370185", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Se1e2e219847d447cbf5823d4e7858e37h.webp?v=1777370186"]
     },
     {
+      "id": 7958583705648,
       "handle": "reflective-dog-leash-with-comfort-padded-handle-4-5-6ft",
       "title": "Reflective Dog Leash with Comfort Padded Handle (4/5/6ft)",
       "type": "Eco Pet",
@@ -353,6 +378,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S706fcbe27ebe40788eba4d1befd33c3ae.webp?v=1777370193", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S8e691b297ee4458f9dcddae03a1e0d60U.webp?v=1777370195", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S4bc998721b0c4147a1456da0f8bd8e26o.webp?v=1777370197"]
     },
     {
+      "id": 7958581575728,
       "handle": "reusable-beeswax-food-wraps-eco-friendly-3-6-pack",
       "title": "Reusable Beeswax Food Wraps \u2014 Eco-Friendly (3/6 Pack)",
       "type": "Eco Home",
@@ -367,6 +393,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sc6e57f1cdcf74b6bb9bbbf07d546b86d9_49c6a843-e300-4dad-a59c-7b5f27bc1480.webp?v=1777370203", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S89dac15a0132458cb359cc65488a999dD_047d9718-7b58-449a-af34-c50b6507234f.webp?v=1777370205", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S11e1572c8ee640a58d338b053e9c95e42_a80d3c3f-80f3-43ce-9d24-71e356951398.webp?v=1777370206"]
     },
     {
+      "id": 7958581411888,
       "handle": "reusable-silicone-food-storage-bags-3-6-10-pack",
       "title": "Reusable Silicone Food Storage Bags (3/6/10 Pack)",
       "type": "Eco Home",
@@ -381,6 +408,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S74202f3ecbe84f0e8da2717a29f627acG.webp?v=1777370222", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S2b16edc1985d4bf8bce2bcc3280ed510z.webp?v=1777370223", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S0b707262536f423f8711180e0ba46ebc6.webp?v=1777370225"]
     },
     {
+      "id": 7958584361008,
       "handle": "silicone-pet-bath-brush-gentle-deshedding-scrubber",
       "title": "Silicone Pet Bath Brush \u2014 Gentle Deshedding Scrubber",
       "type": "Eco Pet",
@@ -395,6 +423,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S2c4dd02dcefc414787b7d077109b8099V.webp?v=1777370232", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sae4c6a0249974340bb0bec1983326a18r.webp?v=1777370234", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S873827cd598340e89040aed42adc885a3.webp?v=1777370235"]
     },
     {
+      "id": 7958581739568,
       "handle": "silicone-stretch-lids-reusable-bowl-covers-6-10-pack",
       "title": "Silicone Stretch Lids \u2014 Reusable Bowl Covers (6/10 Pack)",
       "type": "Eco Home",
@@ -409,6 +438,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S4c634a4351a846c49ed9d345d8ceff5d8.webp?v=1777370240", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S6c05db18303d4474922d863642b82b5bh.webp?v=1777370242", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sc4decaae9b0c4173a1e412303c15f208B.webp?v=1777370243"]
     },
     {
+      "id": 7958581215280,
       "handle": "swedish-dishcloths-reusable-compostable-10-15-20-pack",
       "title": "Swedish Dishcloths \u2014 Reusable & Compostable (10/15/20 Pack)",
       "type": "Eco Home",
@@ -423,6 +453,7 @@ const PRISM_DATA = {
       "images": ["https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S3b8dc4299159415bbe691bd92bdf044bu.webp?v=1777370259", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S8806b76f164b4e9db5a3e341a2ce80efg.webp?v=1777370261", "https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S93b6f785112c4c389e9d3ffee0fefb74J.webp?v=1777370262"]
     },
     {
+      "id": 7958582984752,
       "handle": "wool-dryer-balls-reusable-natural-fabric-softener-3-6-pack",
       "title": "Wool Dryer Balls \u2014 Reusable Natural Fabric Softener (3/6 Pack)",
       "type": "Eco Home",

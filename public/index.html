@@ -2,267 +2,1635 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>PrismCollective — Sustainable Living, Naturally.</title>
-<meta name="description" content="Premium sustainable home and pet essentials. Eco-friendly products designed for a better tomorrow.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrismCollective — Sustainable Living</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #059669;
+    --primary-dark: #064E3B;
+    --primary-light: #ECFDF5;
+    --accent: #EA580C;
+    --accent-light: #FFF7ED;
+    --text: #064E3B;
+    --text-muted: #6B7280;
+    --white: #FFFFFF;
+    --gold: #F59E0B;
+    --card-shadow: 0 4px 24px rgba(6, 78, 59, 0.08);
+    --card-shadow-hover: 0 16px 48px rgba(6, 78, 59, 0.18);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--primary-light);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Rubik', sans-serif;
+    line-height: 1.2;
+  }
+
+  img { display: block; width: 100%; }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0 1.5rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(236, 253, 245, 0.85);
+    backdrop-filter: blur(0px);
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+  }
+
+  header.scrolled {
+    background: rgba(236, 253, 245, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom-color: rgba(5, 150, 105, 0.15);
+    box-shadow: 0 4px 24px rgba(6, 78, 59, 0.08);
+  }
+
+  .logo {
+    font-family: 'Rubik', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 800;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  nav {
+    display: none;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text);
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover { color: var(--primary); }
+  nav a:hover::after { width: 100%; }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cart-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    color: var(--text);
+  }
+
+  .cart-btn:hover { background: rgba(5, 150, 105, 0.1); }
+
+  .cart-btn svg { width: 24px; height: 24px; }
+
+  .cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    transition: transform 0.2s;
+  }
+
+  .cart-badge.bump { transform: scale(1.4); }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+  }
+
+  .hamburger:hover { background: rgba(5, 150, 105, 0.1); }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: var(--transition);
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(236, 253, 245, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(5, 150, 105, 0.15);
+    box-shadow: 0 8px 32px rgba(6, 78, 59, 0.1);
+    transform: translateY(-110%);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 999;
+  }
+
+  .mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-nav a {
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+    font-size: 1rem;
+  }
+
+  .mobile-nav a:hover { background: rgba(5, 150, 105, 0.1); color: var(--primary); }
+
+  @media (min-width: 768px) {
+    nav { display: flex; }
+    .hamburger { display: none; }
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 16px rgba(234, 88, 12, 0.3);
+  }
+
+  .btn-accent:hover {
+    background: #C2410C;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  /* ─── FADE-IN ANIMATION ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 4rem 1.5rem; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    background: rgba(5, 150, 105, 0.1);
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .text-center { text-align: center; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #10B981 100%);
+    display: flex;
+    align-items: center;
+    padding: 6rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+  }
+
+  .blob-1 {
+    width: 500px;
+    height: 500px;
+    background: #34D399;
+    top: -100px;
+    right: -100px;
+  }
+
+  .blob-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
+    bottom: -100px;
+    left: 10%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-text { max-width: 600px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge span { color: #6EE7B7; }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: #6EE7B7;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    color: white;
+  }
+
+  .hero-stat strong {
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #6EE7B7;
+  }
+
+  .hero-stat span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-visual {
+    display: none;
+    position: relative;
+  }
+
+  .hero-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 2rem;
+    color: white;
+  }
+
+  .hero-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .mini-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.25rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .mini-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .mini-card p { font-size: 0.8rem; opacity: 0.8; }
+  .mini-card strong { display: block; font-family: 'Rubik', sans-serif; font-size: 0.95rem; }
+
+  @media (min-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr 1fr; }
+    .hero-visual { display: block; }
+  }
+
+  /* ─── CATEGORY CARDS ─── */
+  .categories {
+    background: white;
+    padding: 4rem 1.5rem;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .category-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .category-card {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-radius: 24px;
+    padding: 2.5rem;
+    color: white;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(6, 78, 59, 0.3);
+  }
+
+  .category-card:hover::before { opacity: 1; }
+
+  .category-card.pet-card {
+    background: linear-gradient(135deg, #065F46, #059669);
+  }
+
+  .cat-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .category-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .cat-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6EE7B7;
+    transition: gap 0.2s;
+  }
+
+  .category-card:hover .cat-arrow { gap: 0.75rem; }
+
+  .cat-bg-icon {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 8rem;
+    opacity: 0.08;
+    line-height: 1;
+  }
+
+  /* ─── PRODUCTS ─── */
+  .products-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .products-section:nth-child(even) {
+    background: white;
+  }
+
+  .products-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .products-grid { gap: 1.25rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  }
+
+  .product-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .product-badge.green {
+    background: var(--primary);
+  }
+
+  .product-wishlist {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .product-wishlist:hover { transform: scale(1.1); }
+
+  .product-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.82rem, 2vw, 0.95rem);
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .star { color: var(--gold); font-size: 0.8rem; }
+  .star.empty { color: #E5E7EB; }
+
+  .rating-count {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+  }
+
+  .product-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
+  .product-price {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--primary-dark);
+  }
+
+  .product-price-old {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    display: block;
+  }
+
+  .add-cart-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+
+  .add-cart-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1) rotate(90deg);
+  }
+
+  /* ─── BUNDLES ─── */
+  .bundles-section {
+    padding: 4rem 1.5rem;
+    background: var(--accent-light);
+  }
+
+  .bundles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .bundles-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .bundle-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .bundle-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .bundle-img {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bundle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .bundle-card:hover .bundle-img img { transform: scale(1.05); }
+
+  .bundle-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(6, 78, 59, 0.8));
+  }
+
+  .bundle-save {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--accent);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+  }
+
+  .bundle-body {
+    padding: 1.5rem;
+  }
+
+  .bundle-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .bundle-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .bundle-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bundle-tag {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .bundle-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bundle-price {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+
+  .bundle-price-old {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    display: block;
+  }
+
+  /* ─── TRUST BADGES ─── */
+  .trust-section {
+    background: white;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .trust-card {
+    text-align: center;
+    padding: 1.75rem 1rem;
+    border-radius: var(--radius);
+    background: var(--primary-light);
+    transition: var(--transition);
+  }
+
+  .trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+  }
+
+  .trust-icon {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+  }
+
+  .trust-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--primary-dark);
+  }
+
+  .trust-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ─── NEWSLETTER ─── */
+  .newsletter-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .newsletter-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .newsletter-content h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .newsletter-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 480px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  @media (min-width: 480px) {
+    .newsletter-form { flex-direction: row; }
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-input::placeholder { color: rgba(255, 255, 255, 0.6); }
+  .newsletter-input:focus { border-color: rgba(255, 255, 255, 0.5); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--primary-dark);
+    padding: 4rem 1.5rem 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  }
+
+  .footer-brand .logo { color: white; margin-bottom: 1rem; }
+
+  .footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    max-width: 260px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .social-link:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .footer-col h4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: #6EE7B7; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-links a { transition: color 0.2s; }
+  .footer-bottom-links a:hover { color: #6EE7B7; }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    background: var(--primary-dark);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 320px;
+  }
+
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .toast-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .toast-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .toast-close:hover { color: white; }
+
+  /* ─── POPUP ─── */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .popup-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .popup {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .popup-overlay.show .popup {
+    transform: scale(1) translateY(0);
+  }
+
+  .popup-header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .popup-close:hover { background: rgba(255, 255, 255, 0.25); }
+
+  .popup-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .popup-header h2 {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .popup-header p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+  }
+
+  .popup-discount {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    padding: 0.25rem 1.25rem;
+    border-radius: 12px;
+    margin: 0.75rem 0;
+  }
+
+  .popup-body {
+    padding: 2rem;
+  }
+
+  .popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .popup-input {
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    border: 2px solid #E5E7EB;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .popup-input:focus { border-color: var(--primary); }
+
+  .popup-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--primary-light); }
+  ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+</style>
 </head>
 <body>
 
-<!-- STICKY HEADER -->
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-      <span></span><span></span><span></span>
+<!-- HEADER -->
+<header id="main-header">
+  <a href="#" class="logo">
+    <div class="logo-icon">🌿</div>
+    PrismCollective
+  </a>
+  <nav id="main-nav">
+    <a href="#hero">Home</a>
+    <a href="#eco-home">Eco Home</a>
+    <a href="#eco-pet">Eco Pet</a>
+    <a href="#bundles">Bundles</a>
+  </nav>
+  <div class="header-right">
+    <button class="cart-btn" id="cart-btn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 01-8 0"></path>
+      </svg>
+      <span class="cart-badge" id="cart-count">0</span>
     </button>
-    <a href="/" class="header-logo">PrismCollective</a>
-    <nav class="header-nav" id="headerNav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/?section=bestsellers">Best Sellers</a></li>
-        <li><a href="/?section=bundles">Bundles</a></li>
-        <li><a href="/collections.html?collection=eco-home">Eco Home</a></li>
-        <li><a href="/collections.html?collection=eco-pet">Eco Pets</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="search-toggle" id="searchToggle" aria-label="Search">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <a href="https://jv17sy-r4.myshopify.com/cart" class="cart-link" aria-label="Cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#hero"> Home</a>
+  <a href="#eco-home"> Eco Home</a>
+  <a href="#eco-pet"> Eco Pet</a>
+  <a href="#bundles"> Bundles</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span>✦</span> Curated Sustainable Products <span>For Home & Pet</span>
+      </div>
+      <h1>Sustainable Living, <em>Naturally</em></h1>
+      <p>Discover handpicked eco-friendly products for your home and pets — because caring for the planet starts at home.</p>
+      <div class="hero-ctas">
+        <a href="#eco-home" class="btn btn-accent"> Shop Eco Home</a>
+        <a href="#eco-pet" class="btn btn-outline hero-outline">Explore Pet Collection</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong id="stat-products">31</strong>
+          <span>Eco Products</span>
+        </div>
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Curated Quality</span>
+        </div>
+        <div class="hero-stat">
+          <strong>4.5</strong>
+          <span>Avg. Rating</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-grid">
+          <div class="mini-card">
+            <div class="icon">🌱</div>
+            <strong>Bamboo</strong>
+            <p>Kitchen Sets</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🐾</div>
+            <strong>Pet Care</strong>
+            <p>Natural Grooming</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">♻️</div>
+            <strong>Reusable</strong>
+            <p>Zero Waste</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🌿</div>
+            <strong>Organic</strong>
+            <p>Pet Treats</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY CARDS -->
+<section class="categories">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label">Shop by Category</div>
+      <h2 class="section-title">What Are You Looking For?</h2>
+      <p class="section-sub">Browse our handpicked collections of sustainable products.</p>
+    </div>
+    <div class="category-grid">
+      <a href="#eco-home" class="category-card fade-in fade-in-delay-1">
+        <div>
+          <div class="cat-icon">🏡</div>
+          <h3>Eco Home</h3>
+          <p>Sustainable essentials for every room — from bamboo kitchenware to organic textiles.</p>
+        </div>
+        <div class="cat-arrow">
+          Shop Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cat-bg-icon">🌿</div>
+      </a>
+      <a href="#eco-pet" class="category-card pet-card fade-in fade-in-delay-2">
+        <div>
+          <div class="cat-icon">🐾</div>
+          <h3>Eco Pet</h3>
+          <p>Natural, toxin-free products for your furry friends — because they deserve the best.</p>
+        </div>
+        <div class="cat-arrow">
+          Shop Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cat-bg-icon">🐾</div>
       </a>
     </div>
   </div>
-  <div class="search-bar" id="searchBar">
-    <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
-    <button id="searchClose" aria-label="Close search">&times;</button>
-  </div>
-</header>
-<div class="header-spacer"></div>
+</section>
 
-<!-- MOBILE OVERLAY -->
-<div class="nav-overlay" id="navOverlay"></div>
-
-<!-- EXIT-INTENT POPUP -->
-<div class="popup-overlay" id="popupOverlay">
-  <div class="popup">
-    <button class="popup-close" id="popupClose">&times;</button>
-    <div class="popup-content">
-      <h2>Welcome to PrismCollective</h2>
-      <p class="popup-subtitle">Get <strong>10% OFF</strong> your first order + <strong>5% OFF</strong> your second order</p>
-      <form class="popup-form" id="popupForm">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit" class="btn-primary">Get My Discount</button>
-      </form>
-      <p class="popup-note">No spam. Unsubscribe anytime.</p>
+<!-- ECO HOME PRODUCTS -->
+<section class="products-section" id="eco-home">
+  <div class="container">
+    <div class="products-header">
+      <div class="fade-in">
+        <div class="section-label">Eco Home</div>
+        <h2 class="section-title" style="margin-bottom:0">Eco Home Essentials</h2>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- HERO SECTION -->
-<section class="hero" id="hero">
-  <div class="hero-slide" style="background: linear-gradient(135deg, #064E3B 0%, #059669 50%, #34D399 100%);">
-    <div class="hero-content">
-      <h1>Sustainable Living,<br>Naturally.</h1>
-      <p>Premium eco-friendly essentials for your home and pets. Thoughtfully sourced, beautifully designed.</p>
-      <a href="/?section=bestsellers" class="btn-hero">Shop Best Sellers</a>
-    </div>
+    <div class="products-grid" id="eco-home-grid"></div>
   </div>
 </section>
 
-<!-- FEATURED PRODUCTS: ECO HOME -->
-<section class="section featured-section" id="featuredHome">
+<!-- ECO PET PRODUCTS -->
+<section class="products-section" id="eco-pet" style="background:white;">
   <div class="container">
-    <div class="section-header">
-      <h2>Eco Home Essentials</h2>
-      <p>Sustainable swaps for every room in your home</p>
+    <div class="products-header">
+      <div class="fade-in">
+        <div class="section-label">Eco Pet</div>
+        <h2 class="section-title" style="margin-bottom:0">Paw-Approved Favorites</h2>
+      </div>
     </div>
-    <div class="product-grid" id="homeGrid"></div>
-    <div class="section-footer">
-      <a href="/collections.html?collection=eco-home" class="btn-outline">View All Eco Home</a>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED PRODUCTS: ECO PET -->
-<section class="section featured-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Eco Pet Favorites</h2>
-      <p>Natural products your furry friends will love</p>
-    </div>
-    <div class="product-grid" id="petGrid"></div>
-    <div class="section-footer">
-      <a href="/collections.html?collection=eco-pet" class="btn-outline">View All Eco Pet</a>
-    </div>
-  </div>
-</section>
-
-<!-- BEST SELLERS -->
-<section class="section bestsellers-section" id="bestsellers">
-  <div class="container">
-    <div class="section-header">
-      <h2>Best Sellers</h2>
-      <p>Our most-loved products by customers like you</p>
-    </div>
-    <div class="product-grid" id="bestsellersGrid"></div>
+    <div class="products-grid" id="eco-pet-grid"></div>
   </div>
 </section>
 
 <!-- BUNDLES -->
-<section class="section bundles-section" id="bundles">
+<section class="bundles-section" id="bundles">
   <div class="container">
-    <div class="section-header">
-      <h2>Curated Bundles</h2>
-      <p>Everything you need to start your sustainable journey</p>
+    <div class="text-center fade-in">
+      <div class="section-label">Save More</div>
+      <h2 class="section-title">Bundle & Save</h2>
+      <p class="section-sub">Handpicked combinations for maximum value.</p>
     </div>
     <div class="bundles-grid">
-      <div class="bundle-card">
-        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S075e47a4752149a2bf63763ad8f93bd93.webp" alt="Starter Kitchen Kit" loading="lazy"></div>
-        <div class="bundle-info">
-          <h3>Starter Kitchen Kit</h3>
-          <p>Bamboo utensils, dishcloths, and silicone lids — everything you need to ditch single-use plastic.</p>
-          <span class="bundle-price">$64.97</span>
-          <span class="bundle-save">Save 15%</span>
-          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
+      <div class="bundle-card fade-in fade-in-delay-1">
+        <div class="bundle-img">
+          <div class="bundle-img-placeholder" style="background: linear-gradient(135deg, #059669, #34D399); padding: 40px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+            <span style="font-size: 48px;">🏡</span>
+          </div>
+          <div class="bundle-save">Save 24%</div>
+        </div>
+        <div class="bundle-body">
+          <h3 class="bundle-title">Home Starter Kit</h3>
+          <p class="bundle-desc">Everything you need to kickstart your sustainable home journey.</p>
+          <div class="bundle-footer">
+            <div>
+              <span class="bundle-price-old">$104.96</span>
+              <span class="bundle-price">$79.99</span>
+            </div>
+            <button class="btn btn-accent" onclick="addToCart(this)">Add Bundle</button>
+          </div>
         </div>
       </div>
-      <div class="bundle-card">
-        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/Sb862efa64c23441c86bba03c.webp" alt="Pet Starter Kit" loading="lazy"></div>
-        <div class="bundle-info">
-          <h3>Pet Starter Kit</h3>
-          <p>Bamboo feeder stand, grooming brush, silicone travel bowl, and cotton rope toys.</p>
-          <span class="bundle-price">$79.96</span>
-          <span class="bundle-save">Save 15%</span>
-          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
+      <div class="bundle-card fade-in fade-in-delay-2">
+        <div class="bundle-img">
+          <div class="bundle-img-placeholder" style="background: linear-gradient(135deg, #EA580C, #F59E0B); padding: 40px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+            <span style="font-size: 48px;">🐾</span>
+          </div>
+          <div class="bundle-save">Save 27%</div>
         </div>
-      </div>
-      <div class="bundle-card">
-        <div class="bundle-img"><img src="https://cdn.shopify.com/s/files/1/0683/4772/3824/files/S201788c7cb9a46a7a3c6281c.webp" alt="Zero Waste Bath" loading="lazy"></div>
-        <div class="bundle-info">
-          <h3>Zero Waste Bath Bundle</h3>
-          <p>Bamboo toothbrushes, glass soap dispenser, and organic cotton produce bags.</p>
-          <span class="bundle-price">$53.97</span>
-          <span class="bundle-save">Save 15%</span>
-          <a href="https://jv17sy-r4.myshopify.com/cart/42110312775984:1?add=1" class="btn-primary">Add Bundle</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="section mission-section">
-  <div class="container">
-    <div class="mission-content">
-      <h2>Designed for Tomorrow</h2>
-      <p>Every product in our collection is chosen with intention. We partner with suppliers who share our commitment to quality materials, ethical production, and thoughtful design. Sustainable living shouldn't mean sacrificing style or convenience.</p>
-      <div class="mission-stats">
-        <div class="stat">
-          <span class="stat-number" data-target="31">0</span>
-          <span class="stat-label">Curated Products</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-target="9">0</span>
-          <span class="stat-label">Collections</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-target="100">0</span>
-          <span class="stat-label">% Satisfaction</span>
+        <div class="bundle-body">
+          <h3 class="bundle-title">Pet Lover's Pack</h3>
+          <p class="bundle-desc">Spoil your furry friend with natural pet care essentials.</p>
+          <div class="bundle-footer">
+            <div>
+              <span class="bundle-price-old">$74.97</span>
+              <span class="bundle-price">$54.99</span>
+            </div>
+            <button class="btn btn-accent" onclick="addToCart(this)">Add Bundle</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST -->
-<section class="section trust-section">
+<!-- TRUST BADGES -->
+<section class="trust-section">
   <div class="container">
+    <div class="text-center fade-in" style="margin-bottom:2rem;">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Shop With Confidence</h2>
+    </div>
     <div class="trust-grid">
-      <div class="trust-item">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <h3>Secure Checkout</h3>
-        <p>Protected by Shopify's enterprise-grade security</p>
+      <div class="trust-card fade-in fade-in-delay-1">
+        <div class="trust-icon">🚚</div>
+        <h4>Free Shipping</h4>
+        <p>On all orders over $50. Fast delivery to your door.</p>
       </div>
-      <div class="trust-item">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        <h3>Satisfaction Guarantee</h3>
-        <p>Not happy? We'll make it right</p>
+      <div class="trust-card fade-in fade-in-delay-2">
+        <div class="trust-icon">🔄</div>
+        <h4>30-Day Returns</h4>
+        <p>Not satisfied? Return any item within 30 days, no questions asked.</p>
       </div>
-      <div class="trust-item">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        <h3>Easy Returns</h3>
-        <p>30-day hassle-free return policy</p>
+      <div class="trust-card fade-in fade-in-delay-3">
+        <div class="trust-icon">🔒</div>
+        <h4>Secure Checkout</h4>
+        <p>256-bit SSL encryption keeps your payment information safe.</p>
       </div>
-      <div class="trust-item">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        <h3>Real Reviews</h3>
-        <p>Honest feedback from real customers</p>
+      <div class="trust-card fade-in fade-in-delay-4">
+        <div class="trust-icon">♻️</div>
+        <h4>Eco Materials</h4>
+        <p>All products are thoughtfully curated for sustainability and quality.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
-<section class="section newsletter-section">
-  <div class="container">
-    <div class="newsletter-content">
-      <h2>Join the Collective</h2>
-      <p>Subscribe for exclusive offers, sustainability tips, and new product launches.</p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit" class="btn-primary">Subscribe</button>
-      </form>
-    </div>
+<section class="newsletter-section">
+  <div class="newsletter-content fade-in">
+    <div class="section-label" style="background:rgba(255,255,255,0.15);color:white;">Stay in the Loop</div>
+    <h2>Join the Green Movement</h2>
+    <p>Get exclusive deals, sustainability tips, and early access to new products.</p>
+    <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email address..." required>
+      <button type="submit" class="btn btn-accent">Subscribe 🌿</button>
+    </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
+<footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>PrismCollective</h3>
-        <p>Sustainable living, naturally. Premium eco-friendly essentials for your home and pets.</p>
+        <div class="logo">
+          <div class="logo-icon">🌿</div>
+          PrismCollective
+        </div>
+        <p>Making sustainable living beautiful, accessible, and affordable for every home and every pet.</p>
+        <div class="social-links">
+          <span class="social-link" title="Instagram">📸</span>
+          <span class="social-link" title="Facebook">👥</span>
+          <span class="social-link" title="Pinterest">📌</span>
+          <span class="social-link" title="TikTok">🎵</span>
+        </div>
       </div>
-      <div class="footer-links">
+      <div class="footer-col">
         <h4>Shop</h4>
-        <ul>
-          <li><a href="/collections.html?collection=eco-home">Eco Home</a></li>
-          <li><a href="/collections.html?collection=eco-pet">Eco Pet</a></li>
-          <li><a href="/collections.html?collection=shop-all">Shop All</a></li>
-          <li><a href="/?section=bestsellers">Best Sellers</a></li>
-        </ul>
+        <div class="footer-links">
+          <a href="#eco-home">Eco Home</a>
+          <a href="#eco-pet">Eco Pet</a>
+          <a href="#bundles">Bundles</a>
+        </div>
       </div>
-      <div class="footer-links">
+      <div class="footer-col">
         <h4>Support</h4>
-        <ul>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/policies.html">Policies</a></li>
-        </ul>
+        <div class="footer-links">
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Returns</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:hello@prismcollective.us">hello@prismcollective.us</a></li>
-        </ul>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="#">Our Story</a>
+          <a href="#">Sustainability</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 PrismCollective. All rights reserved.</p>
+      <p>© 2026 PrismCollective. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
 
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✅</span>
+  <span id="toast-msg">Added to cart!</span>
+  <button class="toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div class="popup-overlay" id="popup-overlay">
+  <div class="popup" id="popup">
+    <div class="popup-header">
+      <button class="popup-close" id="popup-close">✕</button>
+      <span class="popup-emoji">🌿</span>
+      <h2>Wait! Don't Leave Empty-Handed</h2>
+      <p>Get exclusive access to our best eco deals</p>
+      <div class="popup-discount">10% OFF</div>
+      <p style="font-size:0.85rem;margin-top:0.25rem;">your first order</p>
+    </div>
+    <div class="popup-body">
+      <form class="popup-form" onsubmit="handlePopupForm(event)">
+        <input type="email" class="popup-input" placeholder="Enter your email to claim discount" required>
+        <button type="submit" class="btn btn-accent" style="width:100%;">Claim My 10% Off 🎉</button>
+        <button type="button" class="btn btn-outline btn-sm" style="width:100%;" onclick="closePopup()">No thanks, I'll pay full price</button>
+      </form>
+      <p class="popup-note">🔒 No spam, unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+
 <script src="data.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>
