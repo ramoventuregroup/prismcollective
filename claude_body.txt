@@ -1,0 +1,540 @@
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="main-header">
+  <a href="#" class="logo">
+    <div class="logo-icon">🌿</div>
+    PrismCollective
+  </a>
+  <nav id="main-nav">
+    <a href="#hero">Home</a>
+    <a href="#eco-home">Eco Home</a>
+    <a href="#eco-pet">Eco Pet</a>
+    <a href="#bundles">Bundles</a>
+  </nav>
+  <div class="header-right">
+    <button class="cart-btn" id="cart-btn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 01-8 0"></path>
+      </svg>
+      <span class="cart-badge" id="cart-count">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#hero">🏠 Home</a>
+  <a href="#eco-home">🌱 Eco Home</a>
+  <a href="#eco-pet">🐾 Eco Pet</a>
+  <a href="#bundles">📦 Bundles</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span>✦</span> Now shipping eco-friendly <span>carbon-neutral</span>
+      </div>
+      <h1>Sustainable Living, <em>Naturally</em></h1>
+      <p>Discover curated eco-friendly products for your home and pets — because caring for the planet starts at home.</p>
+      <div class="hero-ctas">
+        <a href="#eco-home" class="btn btn-accent">🛒 Shop Eco Home</a>
+        <a href="#eco-pet" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.5);">Explore Pet Collection</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>12,000+</strong>
+          <span>Happy Customers</span>
+        </div>
+        <div class="hero-stat">
+          <strong>98%</strong>
+          <span>Eco Certified</span>
+        </div>
+        <div class="hero-stat">
+          <strong>4.9★</strong>
+          <span>Average Rating</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-grid">
+          <div class="mini-card">
+            <div class="icon">🌱</div>
+            <strong>Bamboo Set</strong>
+            <p>Kitchen Essentials</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🐾</div>
+            <strong>Pet Treats</strong>
+            <p>Organic Blend</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">♻️</div>
+            <strong>Zero Waste</strong>
+            <p>Home Starter</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon">🌿</div>
+            <strong>Natural Care</strong>
+            <p>Pet Grooming</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY CARDS -->
+<section class="categories">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label">Shop by Category</div>
+      <h2 class="section-title">What Are You Looking For?</h2>
+      <p class="section-sub">Browse our handpicked collections of sustainable products.</p>
+    </div>
+    <div class="category-grid">
+      <div class="category-card fade-in fade-in-delay-1">
+        <div>
+          <div class="cat-icon">🏡</div>
+          <h3>Eco Home</h3>
+          <p>Sustainable essentials for every room — from bamboo kitchenware to organic textiles.</p>
+        </div>
+        <div class="cat-arrow">
+          Shop Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cat-bg-icon">🌿</div>
+      </div>
+      <div class="category-card pet-card fade-in fade-in-delay-2">
+        <div>
+          <div class="cat-icon">🐾</div>
+          <h3>Eco Pet</h3>
+          <p>Natural, toxin-free products for your furry friends — because they deserve the best.</p>
+        </div>
+        <div class="cat-arrow">
+          Shop Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cat-bg-icon">🐾</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECO HOME PRODUCTS -->
+<section class="products-section" id="eco-home">
+  <div class="container">
+    <div class="products-header">
+      <div class="fade-in">
+        <div class="section-label">Eco Home</div>
+        <h2 class="section-title" style="margin-bottom:0">Eco Home Essentials</h2>
+      </div>
+      <a href="#" class="btn btn-outline btn-sm fade-in">View All</a>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card fade-in fade-in-delay-1">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/bamboo1/400/400" alt="Bamboo Kitchen Set" loading="lazy">
+          <div class="product-badge">Best Seller</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Bamboo Kitchen Utensil Set</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(248)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price-old">$34.99</span>
+              <span class="product-price">$24.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-2">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/organic2/400/400" alt="Organic Beeswax Wraps" loading="lazy">
+          <div class="product-badge green">Eco Pick</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Organic Beeswax Food Wraps</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(187)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price-old">$22.00</span>
+              <span class="product-price">$16.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-3">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/natural3/400/400" alt="Natural Linen Towels" loading="lazy">
+          <div class="product-badge">New</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Natural Linen Kitchen Towels</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            <span class="rating-count">(93)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price">$18.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-4">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/compost4/400/400" alt="Compostable Bags" loading="lazy">
+          <div class="product-badge green">Popular</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Compostable Trash Bags (50pk)</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(312)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price-old">$19.99</span>
+              <span class="product-price">$14.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ECO PET PRODUCTS -->
+<section class="products-section" id="eco-pet" style="background:white;">
+  <div class="container">
+    <div class="products-header">
+      <div class="fade-in">
+        <div class="section-label">Eco Pet</div>
+        <h2 class="section-title" style="margin-bottom:0">Paw-Approved Favorites</h2>
+      </div>
+      <a href="#" class="btn btn-outline btn-sm fade-in">View All</a>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card fade-in fade-in-delay-1">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/petfood1/400/400" alt="Organic Dog Treats" loading="lazy">
+          <div class="product-badge">Best Seller</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Organic Grain-Free Dog Treats</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(421)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price-old">$18.99</span>
+              <span class="product-price">$13.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-2">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/petbed2/400/400" alt="Hemp Pet Bed" loading="lazy">
+          <div class="product-badge green">Eco Pick</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Recycled Hemp Pet Bed</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(156)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price">$44.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-3">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/petshampoo3/400/400" alt="Natural Pet Shampoo" loading="lazy">
+          <div class="product-badge">New</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Natural Lavender Pet Shampoo</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            <span class="rating-count">(78)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price-old">$16.99</span>
+              <span class="product-price">$11.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-in fade-in-delay-4">
+        <div class="product-img-wrap">
+          <img src="https://picsum.photos/seed/pettoy4/400/400" alt="Organic Cotton Pet Toy" loading="lazy">
+          <div class="product-badge green">Popular</div>
+          <div class="product-wishlist">🤍</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Organic Cotton Rope Toy Set</h3>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="rating-count">(203)</span>
+          </div>
+          <div class="product-price-row">
+            <div>
+              <span class="product-price">$9.99</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart(this)" aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section class="bundles-section" id="bundles">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label">Save More</div>
+      <h2 class="section-title">Curated Bundle Deals</h2>
+      <p class="section-sub">Handpicked combinations for maximum sustainability and savings.</p>
+    </div>
+    <div class="bundles-grid">
+
+      <div class="bundle-card fade-in fade-in-delay-1">
+        <div class="bundle-img">
+          <img src="https://picsum.photos/seed/homebundle/600/300" alt="Home Starter Kit" loading="lazy">
+          <div class="bundle-img-overlay"></div>
+          <div class="bundle-save">Save $25</div>
+        </div>
+        <div class="bundle-body">
+          <h3 class="bundle-title">🏡 Home Starter Kit</h3>
+          <p class="bundle-desc">Everything you need to kickstart your sustainable home journey in one convenient bundle.</p>
+          <div class="bundle-items">
+            <span class="bundle-tag">Bamboo Set</span>
+            <span class="bundle-tag">Beeswax Wraps</span>
+            <span class="bundle-tag">Linen Towels</span>
+            <span class="bundle-tag">Compost Bags</span>
+          </div>
+          <div class="bundle-footer">
+            <div>
+              <span class="bundle-price-old">$104.96</span>
+              <span class="bundle-price">$79.99</span>
+            </div>
+            <button class="btn btn-accent" onclick="addToCart(this)">Add Bundle</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bundle-card fade-in fade-in-delay-2">
+        <div class="bundle-img">
+          <img src="https://picsum.photos/seed/petbundle/600/300" alt="Pet Lover's Pack" loading="lazy">
+          <div class="bundle-img-overlay"></div>
+          <div class="bundle-save">Save $20</div>
+        </div>
+        <div class="bundle-body">
+          <h3 class="bundle-title">🐾 Pet Lover's Pack</h3>
+          <p class="bundle-desc">Spoil your furry friend with our most loved natural and organic pet care essentials.</p>
+          <div class="bundle-items">
+            <span class="bundle-tag">Organic Treats</span>
+            <span class="bundle-tag">Pet Shampoo</span>
+            <span class="bundle-tag">Cotton Toy Set</span>
+          </div>
+          <div class="bundle-footer">
+            <div>
+              <span class="bundle-price-old">$74.97</span>
+              <span class="bundle-price">$54.99</span>
+            </div>
+            <button class="btn btn-accent" onclick="addToCart(this)">Add Bundle</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust-section">
+  <div class="container">
+    <div class="text-center fade-in" style="margin-bottom:2rem;">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Shop With Confidence</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card fade-in fade-in-delay-1">
+        <div class="trust-icon">🚚</div>
+        <h4>Free Shipping</h4>
+        <p>On all orders over $35. Fast, carbon-neutral delivery to your door.</p>
+      </div>
+      <div class="trust-card fade-in fade-in-delay-2">
+        <div class="trust-icon">🔄</div>
+        <h4>30-Day Returns</h4>
+        <p>Not satisfied? Return any item within 30 days, no questions asked.</p>
+      </div>
+      <div class="trust-card fade-in fade-in-delay-3">
+        <div class="trust-icon">🔒</div>
+        <h4>Secure Checkout</h4>
+        <p>256-bit SSL encryption keeps your payment information safe.</p>
+      </div>
+      <div class="trust-card fade-in fade-in-delay-4">
+        <div class="trust-icon">♻️</div>
+        <h4>Eco Materials</h4>
+        <p>All products are certified eco-friendly, sustainable, and ethically sourced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-content fade-in">
+    <div class="section-label" style="background:rgba(255,255,255,0.15);color:white;">Stay in the Loop</div>
+    <h2>Join the Green Movement</h2>
+    <p>Get exclusive deals, sustainability tips, and early access to new products — straight to your inbox.</p>
+    <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email address..." required>
+      <button type="submit" class="btn btn-accent">Subscribe 🌿</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🌿</div>
+          PrismCollective
+        </div>
+        <p>Making sustainable living beautiful, accessible, and affordable for every home and every pet.</p>
+        <div class="social-links">
+          <div class="social-link" title="Instagram">📸</div>
+          <div class="social-link" title="Facebook">👥</div>
+          <div class="social-link" title="Pinterest">📌</div>
+          <div class="social-link" title="TikTok">🎵</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <div class="footer-links">
+          <a href="#eco-home">Eco Home</a>
+          <a href="#eco-pet">Eco Pet</a>
+          <a href="#bundles">Bundles</a>
+          <a href="#">New Arrivals</a>
+          <a href="#">Sale</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Returns</a>
+          <a href="#">Track Order</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="#">Our Story</a>
+          <a href="#">Sustainability</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PrismCollective. All rights reserved. Made with 💚 for the planet.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✅</span>
+  <span id="toast-msg">Added to cart!</span>
+  <button class="toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div class="popup-overlay" id="popup-overlay">
+  <div class="popup" id="popup">
+    <div class="popup-header">
+      <button class="popup-close" id="popup-close">✕</button>
+      <span class="popup-emoji">🌿</span>
+      <h2>Wait! Don't Leave Empty-Handed</h2>
+      <p>Get exclusive access to our best eco deals</p>
+      <div class="popup-discount">10% OFF</div>
+      <p style="font-size:0.85rem;margin-top:0.25rem;">your entire first order</p>
+    </div>
+    <div class="popup-body">
+      <form class="popup-form" onsubmit="handlePopupForm(event)">
+        <input type="email" class="popup-input" placeholder="Enter your email to claim discount" required>
+        <button type="submit" class="btn btn-accent" style="width:100%;">Claim My 10% Off 🎉</button>
+        <button type="button" class="btn btn-outline btn-sm" style="width:100%;" onclick="closePopup()">No thanks, I'll pay full price</button>
+      </form>
+      <p class="popup-note">🔒 No spam, unsubscribe anytime. Limited time offer.</p>
+    </div>
+  </div>
+</div>
+

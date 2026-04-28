@@ -1,0 +1,162 @@
+<script>
+  // ─── CART ───
+  let cartCount = 0;
+
+  function addToCart(btn) {
+    cartCount++;
+    const badge = document.getElementById('cart-count');
+    badge.textContent = cartCount;
+    badge.classList.remove('bump');
+    void badge.offsetWidth;
+    badge.classList.add('bump');
+    setTimeout(() => badge.classList.remove('bump'), 300);
+    showToast('✅', 'Added to cart successfully!');
+  }
+
+  // ─── TOAST ───
+  let toastTimeout;
+
+  function showToast(icon, msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-icon').textContent = icon;
+    document.getElementById('toast-msg').textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(hideToast, 3500);
+  }
+
+  function hideToast() {
+    document.getElementById('toast').classList.remove('show');
+  }
+
+  // ─── HAMBURGER ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  let menuOpen = false;
+
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    hamburger.classList.toggle('open', menuOpen);
+    mobileNav.classList.toggle('open', menuOpen);
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (menuOpen && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    }
+  });
+
+  // ─── SCROLL GLASS HEADER ───
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ─── INTERSECTION OBSERVER FADE-IN ───
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+  // ─── NEWSLETTER FORM ───
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = document.getElementById('newsletter-email').value;
+    if (!email || !email.includes('@')) {
+      showToast('⚠️', 'Please enter a valid email address.');
+      return;
+    }
+    document.getElementById('newsletter-form').reset();
+    showToast('💚', 'Welcome to the green family! Check your inbox.');
+  }
+
+  // ─── EXIT INTENT POPUP ───
+  let popupShown = false;
+  const popupOverlay = document.getElementById('popup-overlay');
+
+  function showPopup() {
+    if (!popupShown) {
+      popupShown = true;
+      popupOverlay.classList.add('show');
+    }
+  }
+
+  function closePopup() {
+    popupOverlay.classList.remove('show');
+  }
+
+  document.getElementById('popup-close').addEventListener('click', closePopup);
+
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) closePopup();
+  });
+
+  // Show after 5 seconds
+  setTimeout(showPopup, 5000);
+
+  // Show on mouse leave (exit intent)
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 10) showPopup();
+  });
+
+  function handlePopupForm(e) {
+    e.preventDefault();
+    closePopup();
+    showToast('🎉', 'Your 10% off discount code: PRISM10 — saved!');
+  }
+
+  // ─── WISHLIST TOGGLE ───
+  document.querySelectorAll('.product-wishlist').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.textContent === '🤍') {
+        btn.textContent = '❤️';
+        showToast('❤️', 'Added to wishlist!');
+      } else {
+        btn.textContent = '🤍';
+      }
+    });
+  });
+
+  // ─── KEYBOARD ESCAPE ───
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closePopup();
+      if (menuOpen) {
+        menuOpen = false;
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+      }
+    }
+  });
+</script>

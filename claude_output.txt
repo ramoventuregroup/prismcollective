@@ -1,0 +1,3343 @@
+I'll build a complete, production-ready ecommerce site for PrismCollective. Let me create all three files with premium design and full functionality.
+
+---FILE: index.html---
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrismCollective — Mindful Living, Naturally</title>
+  <meta name="description" content="PrismCollective offers premium eco-friendly home and pet products for sustainable living. Shop our curated collection of natural, beautiful goods." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="#" class="logo" aria-label="PrismCollective Home">
+        <span class="logo-prism">Prism</span><span class="logo-collective">Collective</span>
+        <span class="logo-leaf">🌿</span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#eco-home" class="nav-link">Eco Home</a></li>
+          <li><a href="#eco-pet" class="nav-link">Eco Pet</a></li>
+          <li><a href="#bundles" class="nav-link">Bundles</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Shopping cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+    <div class="mobile-logo">
+      <span class="logo-prism">Prism</span><span class="logo-collective">Collective</span> 🌿
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#" class="mobile-nav-link">Home</a></li>
+      <li><a href="#eco-home" class="mobile-nav-link">Eco Home</a></li>
+      <li><a href="#eco-pet" class="mobile-nav-link">Eco Pet</a></li>
+      <li><a href="#bundles" class="mobile-nav-link">Bundles</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <p>Free shipping on orders over $50</p>
+      <p>🌱 Certified Eco-Friendly Brand</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content container fade-in">
+        <span class="hero-badge">🌿 Certified Sustainable Brand</span>
+        <h1 class="hero-headline">Sustainable Living,<br /><em>Naturally Beautiful</em></h1>
+        <p class="hero-sub">Discover our curated collection of eco-friendly home and pet products — crafted with the planet in mind, designed for the life you love.</p>
+        <div class="hero-ctas">
+          <a href="#eco-home" class="btn btn-primary btn-lg">Shop Eco Home</a>
+          <a href="#eco-pet" class="btn btn-outline-light btn-lg">Shop Eco Pet</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>10,000+</strong>
+            <span>Happy Customers</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Eco-Certified</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>4.9★</strong>
+            <span>Avg Rating</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORY CARDS ===================== -->
+    <section class="categories section-pad" id="categories">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">Collections</span>
+          <h2 class="section-title">Shop By Category</h2>
+          <p class="section-sub">Thoughtfully sourced products for every corner of your sustainable life.</p>
+        </div>
+        <div class="category-grid">
+          <a href="#eco-home" class="category-card fade-in" id="catHomeCard">
+            <div class="category-card-bg" id="catHomeBg"></div>
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <span class="category-tag">New Arrivals</span>
+              <h3>Eco Home</h3>
+              <p>Sustainable essentials for a greener home</p>
+              <span class="category-cta">Shop Now →</span>
+            </div>
+          </a>
+          <a href="#eco-pet" class="category-card fade-in" id="catPetCard">
+            <div class="category-card-bg" id="catPetBg"></div>
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <span class="category-tag">Best Sellers</span>
+              <h3>Eco Pet</h3>
+              <p>Natural products your pets will love</p>
+              <span class="category-cta">Shop Now →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ECO HOME PRODUCTS ===================== -->
+    <section class="products-section section-pad" id="eco-home">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">Eco Home</span>
+          <h2 class="section-title">Eco Home Essentials</h2>
+          <p class="section-sub">Elevate your space with sustainable, beautifully designed home goods.</p>
+        </div>
+        <div class="product-grid" id="ecoHomeGrid">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="section-cta fade-in">
+          <a href="#" class="btn btn-outline-green">View All Eco Home Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROMO BANNER ===================== -->
+    <section class="promo-banner fade-in">
+      <div class="container">
+        <div class="promo-banner-inner">
+          <div class="promo-text">
+            <h3>🌱 Planting Trees With Every Order</h3>
+            <p>We donate 1% of every sale to reforestation projects worldwide. Join us in making a difference.</p>
+          </div>
+          <a href="#" class="btn btn-white">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ECO PET PRODUCTS ===================== -->
+    <section class="products-section section-pad" id="eco-pet">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">Eco Pet</span>
+          <h2 class="section-title">Natural Pet Essentials</h2>
+          <p class="section-sub">Premium eco-friendly products for your beloved companions — because they deserve the best too.</p>
+        </div>
+        <div class="product-grid" id="ecoPetGrid">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="section-cta fade-in">
+          <a href="#" class="btn btn-outline-green">View All Eco Pet Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BUNDLES ===================== -->
+    <section class="bundles-section section-pad" id="bundles">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">Value Bundles</span>
+          <h2 class="section-title">Curated Bundle Sets</h2>
+          <p class="section-sub">Everything you need to get started on your sustainable journey — at a special price.</p>
+        </div>
+        <div class="bundles-grid">
+          <div class="bundle-card bundle-home fade-in">
+            <div class="bundle-badge">Save $15</div>
+            <div class="bundle-icon">🏡</div>
+            <h3 class="bundle-title">Home Starter Kit</h3>
+            <p class="bundle-desc">The perfect starter set for an eco-friendly home. Includes our most-loved kitchen and cleaning essentials.</p>
+            <ul class="bundle-items" id="bundleHomeItems">
+              <!-- Populated by app.js -->
+            </ul>
+            <div class="bundle-pricing">
+              <span class="bundle-compare">$94.99</span>
+              <span class="bundle-price">$79.99</span>
+            </div>
+            <a href="https://jv17sy-r4.myshopify.com/cart/" class="btn btn-primary btn-block">Add Bundle to Cart</a>
+          </div>
+          <div class="bundle-card bundle-pet fade-in">
+            <div class="bundle-badge">Save $10</div>
+            <div class="bundle-icon">🐾</div>
+            <h3 class="bundle-title">Pet Lover's Pack</h3>
+            <p class="bundle-desc">A handpicked selection of natural pet care essentials that keep your furry friend happy and healthy.</p>
+            <ul class="bundle-items" id="bundlePetItems">
+              <!-- Populated by app.js -->
+            </ul>
+            <div class="bundle-pricing">
+              <span class="bundle-compare">$64.99</span>
+              <span class="bundle-price">$54.99</span>
+            </div>
+            <a href="https://jv17sy-r4.myshopify.com/cart/" class="btn btn-accent btn-block">Add Bundle to Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="testimonials-section section-pad">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">Reviews</span>
+          <h2 class="section-title">What Our Community Says</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Absolutely love my PrismCollective products! The quality is outstanding and I feel great knowing they're eco-friendly. Will definitely order again."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">S</div>
+              <div>
+                <strong>Sarah M.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"My dog loves the natural treats and I love that they're made without any harsh chemicals. PrismCollective is now my go-to for all pet supplies."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">J</div>
+              <div>
+                <strong>James K.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"The packaging is gorgeous and sustainable. I gifted the Home Starter Kit to my sister and she's obsessed. Premium quality at a fair price."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <strong>Amanda R.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST SECTION ===================== -->
+    <section class="trust-section section-pad">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item fade-in">
+            <div class="trust-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <h4>Free Shipping</h4>
+            <p>On all orders over $50. Fast, reliable delivery to your door.</p>
+          </div>
+          <div class="trust-item fade-in">
+            <div class="trust-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+            </div>
+            <h4>30-Day Returns</h4>
+            <p>Not satisfied? Return it hassle-free within 30 days.</p>
+          </div>
+          <div class="trust-item fade-in">
+            <div class="trust-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h4>Secure Checkout</h4>
+            <p>256-bit SSL encryption. Your data is always safe with us.</p>
+          </div>
+          <div class="trust-item fade-in">
+            <div class="trust-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h4>Eco-Friendly</h4>
+            <p>Every product is certified eco-friendly and sustainably sourced.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section class="faq-section section-pad">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              What makes PrismCollective products eco-friendly?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>All our products are made from sustainably sourced, natural materials. We use biodegradable packaging, avoid harmful chemicals, and partner only with suppliers who meet our strict environmental standards. Every purchase also contributes to our tree-planting initiative.</p>
+            </div>
+          </div>
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              How long does shipping take?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Standard shipping takes 3–7 business days. Express shipping (2–3 business days) is available at checkout. Orders over $50 qualify for free standard shipping. We ship to all 50 US states plus Canada.</p>
+            </div>
+          </div>
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Are your pet products safe for all animals?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Our pet products are formulated with veterinarian-approved, natural ingredients. They are free from artificial preservatives, colors, and flavors. However, we always recommend checking product descriptions for species-specific information and consulting your vet if your pet has allergies.</p>
+            </div>
+          </div>
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              What is your return policy?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We offer a 30-day hassle-free return policy. If you're not completely satisfied, contact our support team and we'll arrange a return or exchange. Items must be unused and in their original packaging. Perishable pet food items are non-returnable once opened.</p>
+            </div>
+          </div>
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer subscription discounts?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Subscribe & Save is available on select products for 15% off recurring orders. You can manage your subscription anytime — pause, skip, or cancel with no fees. It's the easiest way to keep your home and pets stocked sustainably.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-inner fade-in">
+          <div class="newsletter-text">
+            <span class="newsletter-eyebrow">Join Our Community</span>
+            <h2>Get 10% Off Your First Order</h2>
+            <p>Sign up for exclusive deals, eco tips, and new product alerts. No spam — ever.</p>
+            <ul class="newsletter-perks">
+              <li>✓ Exclusive member discounts</li>
+              <li>✓ Early access to new products</li>
+              <li>✓ Monthly eco-living tips</li>
+            </ul>
+          </div>
+          <div class="newsletter-form-wrapper">
+            <form class="newsletter-form" id="newsletterForm">
+              <div class="form-group">
+                <input type="text" placeholder="Your name" class="form-input" id="newsletterName" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Your email address" class="form-input" id="newsletterEmail" required />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                Get My 10% Discount
+              </button>
+              <p class="form-disclaimer">By subscribing you agree to our Privacy Policy. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-prism">Prism</span><span class="logo-collective">Collective</span> 🌿
+        </div>
+        <p class="footer-tagline">Mindful Living, Naturally</p>
+        <p class="footer-desc">We believe sustainable living should be accessible, beautiful, and joyful. Every product we curate is chosen with people and planet in mind.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.548 2.142-.832 3.330-.236.994.499 1.806 1.476 1.806 1.773 0 3.137-1.867 3.137-4.563 0-2.386-1.716-4.053-4.165-4.053-2.837 0-4.498 2.128-4.498 4.329 0 .856.33 1.775.742 2.277a.298.298 0 0 1 .069.285c-.076.312-.244.994-.276 1.133-.044.183-.146.222-.336.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.220-5.190 6.220-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#eco-home">Eco Home</a></li>
+          <li><a href="#eco-pet">Eco Pet</a></li>
+          <li><a href="#bundles">Bundles</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2024 PrismCollective. All rights reserved. Made with 💚 for the planet.</p>
+      <div class="footer-payments">
+        <span>Visa</span>
+        <span>Mastercard</span>
+        <span>PayPal</span>
+        <span>Apple Pay</span>
+        <span>Shop Pay</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== TOAST NOTIFICATION ===================== -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- ===================== EXIT INTENT POPUP ===================== -->
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="exit-popup" id="exitPopup" role="dialog" aria-label="Special offer">
+    <button class="popup-close" id="popupClose" aria-label="Close popup">✕</button>
+    <div class="popup-content">
+      <div class="popup-icon">🌿</div>
+      <h3>Wait! Before You Go...</h3>
+      <p>Get <strong>15% OFF</strong> your first order with code:</p>
+      <div class="popup-code">PRISM15</div>
+      <p class="popup-sub">Limited time offer. Automatically applied at checkout.</p>
+      <a href="#eco-home" class="btn btn-primary btn-block popup-cta" id="popupCta">Shop Now & Save 15%</a>
+      <button class="popup-dismiss" id="popupDismiss">No thanks, I'll pay full price</button>
+    </div>
+  </div>
+
+  <!-- ===================== STICKY CART BAR (MOBILE) ===================== -->
+  <div class="sticky-cart-bar" id="stickyCartBar">
+    <button class="sticky-cart-btn" id="stickyCartBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      View Cart (<span id="stickyCartCount">0</span> items)
+    </button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+```
+
+---FILE: style.css---
+
+```css
+/* =====================================================
+   PRISMCOLLECTIVE — COMPLETE STYLESHEET
+   Mobile-first, responsive, premium ecommerce design
+   ===================================================== */
+
+/* --------- CSS CUSTOM PROPERTIES --------- */
+:root {
+  --color-primary: #059669;
+  --color-primary-dark: #047857;
+  --color-primary-light: #10B981;
+  --color-accent: #EA580C;
+  --color-accent-dark: #C2410C;
+  --color-bg: #ECFDF5;
+  --color-bg-alt: #F0FDF4;
+  --color-text: #064E3B;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
+  --color-white: #FFFFFF;
+  --color-gold: #F59E0B;
+  --color-border: #D1FAE5;
+  --color-card-bg: #FFFFFF;
+  --color-header-bg: #022c22;
+  --color-footer-bg: #022c22;
+  --color-price: #064E3B;
+  --color-compare-price: #9CA3AF;
+  --color-badge-sale: #EA580C;
+  --color-badge-best: #059669;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-green: 0 8px 24px rgba(5,150,105,0.25);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --font-heading: 'Rubik', sans-serif;
+  --font-body: 'Nunito Sans', sans-serif;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  --header-height: 72px;
+  --container-max: 1280px;
+  --container-pad: 1rem;
+}
+
+/* --------- RESET & BASE --------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: var(--font-body);
+}
+
+/* --------- CONTAINER --------- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+@media (min-width: 640px) {
+  :root { --container-pad: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  :root { --container-pad: 2rem; }
+}
+@media (min-width: 1280px) {
+  :root { --container-pad: 2.5rem; }
+}
+
+/* --------- SECTION PADDING --------- */
+.section-pad {
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .section-pad { padding: 5rem 0; }
+}
+@media (min-width: 1024px) {
+  .section-pad { padding: 6rem 0; }
+}
+
+/* --------- TYPOGRAPHY --------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* --------- SECTION HEADER --------- */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  background: rgba(5, 150, 105, 0.1);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.875rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.section-sub {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* --------- BUTTONS --------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+.btn-accent:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(234,88,12,0.25);
+}
+
+.btn-outline-green {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-green:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.7);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--color-white);
+  color: var(--color-white);
+  box-shadow: none;
+}
+
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+
+.btn-white:hover {
+  background: var(--color-bg-alt);
+  box-shadow: none;
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 0.9375rem 2.25rem;
+}
+
+.btn-sm {
+  font-size: 0.8125rem;
+  padding: 0.5rem 1.125rem;
+}
+
+.btn-block {
+  width: 100%;
+  display: flex;
+}
+
+/* --------- HEADER --------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background: var(--color-header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.site-header.scrolled {
+  background: rgba(2, 44, 34, 0.97);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-prism {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: var(--color-primary-light);
+  letter-spacing: -0.02em;
+}
+
+.logo-collective {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.375rem;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.01em;
+}
+
+.logo-leaf {
+  font-size: 1.125rem;
+  margin-left: 0.125rem;
+}
+
+/* Nav */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.75);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--color-white);
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-header-bg);
+  transition: transform var(--transition-fast);
+}
+
+.cart-count.bump {
+  animation: cartBump 0.3s ease;
+}
+
+@keyframes cartBump {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: background var(--transition-base);
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Mobile Nav */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--color-header-bg);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-close {
+  align-self: flex-end;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.1);
+  color: var(--color-white);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background var(--transition-base);
+}
+
+.mobile-nav-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.mobile-logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-nav-list {
+  flex: 1;
+}
+
+.mobile-nav-list li {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.85);
+  transition: color var(--transition-base);
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-primary-light);
+}
+
+.mobile-nav-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-nav-footer p {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.375rem;
+}
+
+/* --------- HERO --------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--header-height);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(5, 150, 105, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(234, 88, 12, 0.06) 0%, transparent 50%),
+    linear-gradient(135deg, #022c22 0%, #064E3B 40%, #065F46 70%, #047857 100%);
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 0;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--color-primary-light);
+  position: relative;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin-bottom: 2.25rem;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.hero-stat strong {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.hero-stat span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.2);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+  opacity: 0.7;
+}
+
+.hero-scroll-indicator span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid rgba(255,255,255,0.5);
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  transform: rotate(45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+  margin-top: -8px;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(5px); }
+}
+
+/* --------- CATEGORIES --------- */
+.categories {
+  background: var(--color-bg);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.category-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .category-card {
+    aspect-ratio: 3/4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .category-card {
+    aspect-ratio: 5/6;
+  }
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.category-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover .category-card-bg {
+  transform: scale(1.06);
+}
+
+.category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(2, 44, 34, 0.85) 0%,
+    rgba(2, 44, 34, 0.3) 50%,
+    rgba(2, 44, 34, 0.1) 100%
+  );
+  transition: background var(--transition-base);
+}
+
+.category-card:hover .category-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(2, 44, 34, 0.9) 0%,
+    rgba(2, 44, 34, 0.4) 50%,
+    rgba(2, 44, 34, 0.15) 100%
+  );
+}
+
+.category-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.75rem;
+  z-index: 2;
+}
+
+.category-tag {
+  display: inline-block;
+  background: rgba(5, 150, 105, 0.9);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.625rem;
+}
+
+.category-card-content h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 0.375rem;
+}
+
+.category-card-content p {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.875rem;
+}
+
+.category-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--color-primary-light);
+  transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.category-card:hover .category-cta {
+  gap: 0.625rem;
+  color: var(--color-white);
+}
+
+/* --------- PRODUCT GRID --------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* --------- PRODUCT CARD --------- */
+.product-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image-wrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-wrapper img {
+  transform: scale(1.06);
+}
+
+.product-badges {
+  position: absolute;
+  top: 0.625rem;
+  left: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  line-height: 1;
+}
+
+.badge-sale {
+  background: var(--color-badge-sale);
+  color: var(--color-white);
+}
+
+.badge-best {
+  background: var(--color-badge-best);
+  color: var(--color-white);
+}
+
+.badge-new {
+  background: #7C3AED;
+  color: var(--color-white);
+}
+
+.product-quick-add {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(2, 44, 34, 0.9);
+  color: var(--color-white);
+  text-align: center;
+  padding: 0.625rem;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.03em;
+}
+
+.product-card:hover .product-quick-add {
+  transform: translateY(0);
+}
+
+.product-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.product-title {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stars {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.review-count {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.product-price {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-price);
+}
+
+.product-compare {
+  font-size: 0.875rem;
+  color: var(--color-compare-price);
+  text-decoration: line-through;
+}
+
+.product-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: 0.625rem;
+  text-decoration: none;
+}
+
+.product-card-btn:hover {
+  background: var(--color-primary-dark);
+  transform: none;
+  box-shadow: var(--shadow-green);
+}
+
+/* Eco Home section bg */
+#eco-home {
+  background: var(--color-bg);
+}
+
+/* Eco Pet section bg */
+#eco-pet {
+  background: var(--color-white);
+}
+
+/* --------- PROMO BANNER --------- */
+.promo-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  padding: 3rem 0;
+}
+
+.promo-banner-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .promo-banner-inner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
+
+.promo-text h3 {
+  font-size: 1.375rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.promo-text p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9375rem;
+  max-width: 480px;
+}
+
+/* --------- BUNDLES --------- */
+.bundles-section {
+  background: var(--color-bg);
+}
+
+.bundles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bundles-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.bundle-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.bundle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.bundle-home {
+  background: linear-gradient(135deg, #064E3B 0%, #065F46 50%, #047857 100%);
+  color: var(--color-white);
+}
+
+.bundle-pet {
+  background: linear-gradient(135deg, #431407 0%, #7C2D12 50%, #9A3412 100%);
+  color: var(--color-white);
+}
+
+.bundle-home::before,
+.bundle-pet::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.bundle-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--color-gold);
+  color: #1c1c1c;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full);
+}
+
+.bundle-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.bundle-title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+}
+
+.bundle-desc {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+.bundle-items {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bundle-items li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.bundle-items li::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.bundle-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.bundle-price {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-white);
+}
+
+.bundle-compare {
+  font-size: 1.125rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: line-through;
+}
+
+.bundle-home .btn-primary {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.bundle-home .btn-primary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.bundle-pet .btn-accent {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.bundle-pet .btn-accent:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* --------- TESTIMONIALS --------- */
+.testimonials-section {
+  background: var(--color-bg-alt);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.testimonial-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border: 1px solid var(--color-border);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-stars {
+  color: var(--color-gold);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.testimonial-author span {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* --------- TRUST SECTION --------- */
+.trust-section {
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.trust-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.trust-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.trust-item:hover .trust-icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.trust-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.375rem;
+}
+
+.trust-item p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* --------- FAQ --------- */
+.faq-section {
+  background: var(--color-bg);
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  gap: 1rem;
+  transition: color var(--transition-base);
+}
+
+.faq-question:hover {
+  color: var(--color-primary);
+}
+
+.faq-question[aria-expanded="true"] {
+  color: var(--color-primary);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  line-height: 1;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding var(--transition-base);
+}
+
+.faq-answer.open {
+  max-height: 500px;
+  padding-bottom: 1.25rem;
+}
+
+.faq-answer p {
+  padding: 0 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* --------- NEWSLETTER --------- */
+.newsletter-section {
+  background: linear-gradient(135deg, #064E3B 0%, #065F46 60%, #047857 100%);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+
+.newsletter-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+
+.newsletter-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .newsletter-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.newsletter-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.newsletter-text h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 0.875rem;
+}
+
+.newsletter-text p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.newsletter-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newsletter-perks li {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+.newsletter-form-wrapper {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.form-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.form-input:focus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.18);
+}
+
+.form-disclaimer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* --------- FOOTER --------- */
+.site-footer {
+  background: var(--color-footer-bg);
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (min-width: 640px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.625rem;
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  color: var(--color-primary-light);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  transition: all var(--transition-base);
+}
+
+.social-link:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.footer-nav-group h4 {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+  margin-bottom: 1.125rem;
+}
+
+.footer-nav-group ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-nav-group a {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.55);
+  transition: color var(--transition-base);
+  text-decoration: none;
+}
+
+.footer-nav-group a:hover {
+  color: var(--color-primary-light);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-bottom p {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-payments {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-payments span {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* --------- TOAST --------- */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-text);
+  color: var(--color-white);
+  padding: 1rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-xl);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: calc(100vw - 2rem);
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  background: var(--color-primary-dark);
+}
+
+.toast.error {
+  background: #DC2626;
+}
+
+/* --------- POPUP --------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(4px);
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.exit-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  max-width: min(480px, 90vw);
+  width: 100%;
+  z-index: 9991;
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+}
+
+.exit-popup.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  background: var(--color-text);
+  color: var(--color-white);
+}
+
+.popup-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.exit-popup h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.625rem;
+}
+
+.exit-popup p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.popup-code {
+  background: var(--color-bg);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 0.875rem;
+  font-family: monospace;
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+  margin: 1rem 0;
+}
+
+.popup-sub {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.popup-cta {
+  margin-bottom: 0.75rem;
+}
+
+.popup-dismiss {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.375rem;
+  transition: color var(--transition-base);
+}
+
+.popup-dismiss:hover {
+  color: var(--color-text);
+}
+
+/* --------- STICKY CART BAR (MOBILE) --------- */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--color-header-bg);
+  padding: 0.875rem 1rem;
+  padding-bottom: max(0.875rem, env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(255,255,255,0.1);
+  transform: translateY(100%);
+  transition: transform var(--transition-slow);
+}
+
+.sticky-cart-bar.visible {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .sticky-cart-bar {
+    display: none;
+  }
+}
+
+.sticky-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.sticky-cart-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+/* --------- SCROLL ANIMATIONS --------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+.fade-in:nth-child(4) { transition-delay: 0.24s; }
+.fade-in:nth-child(5) { transition-delay: 0.32s; }
+.fade-in:nth-child(6) { transition-delay: 0.40s; }
+.fade-in:nth-child(7) { transition-delay: 0.48s; }
+.fade-in:nth-child(8) { transition-delay: 0.56s; }
+
+/* --------- SCROLLBAR STYLING --------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* --------- UTILITY --------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------- FOCUS STYLES --------- */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* --------- LOADING STATE --------- */
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .loading-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8f5e9 25%, #c8e6c9 50%, #e8f5e9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-lg);
+  height: 320px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* --------- NO PRODUCT STATE --------- */
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text-muted);
+}
+
+.no-products h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+/* --------- RESPONSIVE FIXES --------- */
+@media (max-width: 639px) {
+  .hero-ctas {
+    flex-direction: column;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-stats {
+    gap: 1rem;
+  }
+  .bundle-card {
+    padding: 1.5rem;
+  }
+}
+```
+
+---FILE: app.js---
+
+```javascript
+/* =====================================================
+   PRISMCOLLECTIVE — COMPLETE APP LOGIC
+   ===================================================== */
+
+'use strict';
+
+// ─────────────────────────────────────────────
+// CONSTANTS & CONFIG
+// ─────────────────────────────────────────────
+const SHOPIFY_CART_BASE = 'https://jv17sy-r4.myshopify.com/cart/';
+const CART_KEY = 'prism_cart_qty';
+const POPUP_KEY = 'prism_popup_shown';
+const NEWSLETTER_KEY = 'prism_newsletter';
+
+// ─────────────────────────────────────────────
+// UTILITY HELPERS
+// ─────────────────────────────────────────────
+
+/**
+ * Build Shopify checkout URL
+ * @param {string|number} productId
+ * @param {number} [qty=1]
+ * @returns {string}
+ */
+function getCheckoutURL(productId, qty = 1) {
+  return `${SHOPIFY_CART_BASE}${productId}:${qty}`;
+}
+
+/**
+ * Render star rating HTML
+ * @param {number} rating  – e.g. 4.5
+ * @param {number} count   – review count
+ */
+function renderStars(rating, count) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5;
+  const empty = 5 - full - (half ? 1 : 0);
+  let stars = '★'.repeat(full);
+  if (half) stars += '✦';
+  stars += '☆'.repeat(empty);
+  const countText = count ? `<span class="review-count">(${count})</span>` : '';
+  return `<div class="product-rating">
+    <span class="stars" title="${rating} out of 5">${stars}</span>
+    ${countText}
+  </div>`;
+}
+
+/**
+ * Format USD price
+ * @param {number} price
+ */
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+}
+
+/**
+ * Get sale percentage
+ */
+function getSalePercent(price, compare) {
+  if (!compare || compare <= price) return null;
+  return Math.round((1 - price / compare) * 100);
+}
+
+/**
+ * Show toast notification
+ * @param {string} message
+ * @param {'success'|'error'|'info'} type
+ * @param {number} duration  ms
+ */
+function showToast(message, type = 'success', duration = 3500) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.className = `toast show ${type}`;
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.className = 'toast';
+  }, duration);
+}
+
+/**
+ * Debounce utility
+ */
+function debounce(fn, wait) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+}
+
+// ─────────────────────────────────────────────
+// CART COUNTER
+// ─────────────────────────────────────────────
+let cartQty = parseInt(localStorage.getItem(CART_KEY) || '0', 10);
+
+function updateCartDisplay() {
+  const els = [
+    document.getElementById('cartCount'),
+    document.getElementById('stickyCartCount'),
+  ];
+  els.forEach(el => {
+    if (!el) return;
+    el.textContent = cartQty;
+    el.style.display = cartQty === 0 ? 'none' : 'flex';
+  });
+}
+
+function incrementCart(qty = 1) {
+  cartQty += qty;
+  localStorage.setItem(CART_KEY, cartQty);
+  updateCartDisplay();
+
+  // Bump animation
+  const cc = document.getElementById('cartCount');
+  if (cc) {
+    cc.classList.remove('bump');
+    requestAnimationFrame(() => cc.classList.add('bump'));
+  }
+
+  // Show sticky bar on mobile
+  const bar = document.getElementById('stickyCartBar');
+  if (bar) bar.classList.add('visible');
+}
+
+// ─────────────────────────────────────────────
+// PRODUCT CARD RENDERER
+// ─────────────────────────────────────────────
+
+/**
+ * Build a product card DOM element
+ * @param {Object} product – from PRISM_DATA
+ */
+function createProductCard(product) {
+  const {
+    id,
+    title,
+    price,
+    compare_at_price,
+    image,
+    rating = 4.5,
+    review_count = 0,
+    badge,
+    is_best_seller,
+    is_new,
+  } = product;
+
+  const checkoutURL = getCheckoutURL(id, 1);
+  const salePercent = getSalePercent(price, compare_at_price);
+
+  // Badges HTML
+  let badgesHTML = '';
+  if (salePercent) badgesHTML += `<span class="badge badge-sale">−${salePercent}%</span>`;
+  if (is_best_seller || badge === 'Best Seller') badgesHTML += `<span class="badge badge-best">Best Seller</span>`;
+  if (is_new || badge === 'New') badgesHTML += `<span class="badge badge-new">New</span>`;
+
+  // Compare price HTML
+  const comparePriceHTML = compare_at_price
+    ? `<span class="product-compare">${formatPrice(compare_at_price)}</span>`
+    : '';
+
+  const card = document.createElement('article');
+  card.className = 'product-card fade-in';
+  card.setAttribute('role', 'listitem');
+  card.innerHTML = `
+    <div class="product-image-wrapper">
+      <img
+        src="${image || ''}"
+        alt="${title || 'Product image'}"
+        loading="lazy"
+        decoding="async"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23D1FAE5%22 width=%22400%22 height=%22400%22/%3E%3Ctext fill=%22%23059669%22 font-family=%22sans-serif%22 font-size=%2260%22 x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22%3E🌿%3C/text%3E%3C/svg%3E'"
+      />
+      ${badgesHTML ? `<div class="product-badges">${badgesHTML}</div>` : ''}
+      <button class="product-quick-add" data-id="${id}" data-title="${title}" aria-label="Quick add ${title} to cart">
+        Quick Add
+      </button>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">${title || 'Untitled Product'}</h3>
+      ${renderStars(rating, review_count)}
+      <div class="product-pricing">
+        <span class="product-price">${formatPrice(price)}</span>
+        ${comparePriceHTML}
+      </div>
+      <a
+        href="${checkoutURL}"
+        class="product-card-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Add ${title} to cart"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        </svg>
+        Add to Cart
+      </a>
+    </div>
+  `;
+
+  // Quick-add button logic
+  const quickAddBtn = card.querySelector('.product-quick-add');
+  if (quickAddBtn) {
+    quickAddBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      incrementCart(1);
+      showToast(`✓ ${title} added to cart!`, 'success');
+      // Open Shopify URL
+      window.open(checkoutURL, '_blank', 'noopener');
+    });
+  }
+
+  // Main CTA also increments cart counter
+  const addToCartBtn = card.querySelector('.product-card-btn');
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', () => {
+      incrementCart(1);
+      showToast(`✓ ${title} added to cart!`, 'success');
+    });
+  }
+
+  return card;
+}
+
+// ─────────────────────────────────────────────
+// RENDER PRODUCT GRIDS
+// ─────────────────────────────────────────────
+
+/**
+ * Render products into a grid container
+ * @param {string} containerId  – DOM element id
+ * @param {Object[]} products   – array of product objects
+ * @param {number} [limit=8]    – max products to show
+ */
+function renderProductGrid(containerId, products, limit = 8) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.setAttribute('role', 'list');
+
+  if (!products || products.length === 0) {
+    container.innerHTML = `
+      <div class="no-products">
+        <h3>Products Coming Soon</h3>
+        <p>We're adding new eco-friendly products all the time. Check back soon!</p>
+      </div>`;
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  const sliced = products.slice(0, limit);
+
+  sliced.forEach((product, idx) => {
+    const card = createProductCard(product);
+    // Stagger animation delay
+    card.style.transitionDelay = `${idx * 60}ms`;
+    fragment.appendChild(card);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(fragment);
+
+  // Trigger scroll animations for newly added cards
+  observeElements(container.querySelectorAll('.fade-in'));
+}
+
+// ─────────────────────────────────────────────
+// CATEGORY CARD BACKGROUNDS
+// ─────────────────────────────────────────────
+
+function initCategoryCards() {
+  if (typeof window.PRISM_DATA === 'undefined') return;
+
+  const ecoHomeProducts = window.PRISM_DATA.filter(p =>
+    p.collection && p.collection.toLowerCase().includes('home')
+  );
+  const ecoPetProducts = window.PRISM_DATA.filter(p =>
+    p.collection && p.collection.toLowerCase().includes('pet')
+  );
+
+  const homeBg = document.getElementById('catHomeBg');
+  const petBg = document.getElementById('catPetBg');
+
+  if (homeBg && ecoHomeProducts.length > 0) {
+    homeBg.style.backgroundImage = `url('${ecoHomeProducts[0].image}')`;
+    homeBg.style.backgroundSize = 'cover';
+    homeBg.style.backgroundPosition = 'center';
+  } else if (homeBg) {
+    homeBg.style.background = 'linear-gradient(135deg, #064E3B 0%, #10B981 100%)';
+  }
+
+  if (petBg && ecoPetProducts.length > 0) {
+    petBg.style.backgroundImage = `url('${ecoPetProducts[0].image}')`;
+    petBg.style.backgroundSize = 'cover';
+    petBg.style.backgroundPosition = 'center';
+  } else if (petBg) {
+    petBg.style.background = 'linear-gradient(135deg, #431407 0%, #EA580C 100%)';
+  }
+}
+
+// ─────────────────────────────────────────────
+// BUNDLE ITEMS RENDERER
+// ─────────────────────────────────────────────
+
+function renderBundleItems() {
+  if (typeof window.PRISM_DATA === 'undefined') return;
+
+  const ecoHome = window.PRISM_DATA.filter(p =>
+    p.collection && p.collection.toLowerCase().includes('home')
+  ).slice(0, 3);
+
+  const ecoPet = window.PRISM_DATA.filter(p =>
+    p.collection && p.collection.toLowerCase().includes('pet')
+  ).slice(0, 3);
+
+  const homeEl = document.getElementById('bundleHomeItems');
+  const petEl = document.getElementById('bundlePetItems');
+
+  if (homeEl) {
+    homeEl.innerHTML = ecoHome.map(p =>
+      `<li>${p.title}</li>`
+    ).join('');
+    if (ecoHome.length === 0) {
+      homeEl.innerHTML = `
+        <li>Eco Cleaning Kit</li>
+        <li>Bamboo Kitchen Set</li>
+        <li>Reusable Storage Bags</li>`;
+    }
+  }
+
+  if (petEl) {
+    petEl.innerHTML = ecoPet.map(p =>
+      `<li>${p.title}</li>`
+    ).join('');
+    if (ecoPet.length === 0) {
+      petEl.innerHTML = `
+        <li>Natural Pet Shampoo</li>
+        <li>Organic Pet Treats</li>
+        <li>Eco Pet Toy Set</li>`;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────
+// SCROLL-TRIGGERED FADE IN
+// ─────────────────────────────────────────────
+let scrollObserver;
+
+function observeElements(elements) {
+  if (!scrollObserver) {
+    scrollObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+  }
+  elements.forEach(el => {
+    if (el && !el.classList.contains('visible')) {
+      scrollObserver.observe(el);
+    }
+  });
+}
+
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.fade-in');
+  observeElements(elements);
+}
+
+// ─────────────────────────────────────────────
+// HEADER SCROLL EFFECT
+// ─────────────────────────────────────────────
+function initHeaderScroll() {
+  const header = document.getElementById('siteHeader');
+  if (!header) return;
+
+  const onScroll = debounce(() => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, 10);
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+// ─────────────────────────────────────────────
+// MOBILE HAMBURGER MENU
+// ─────────────────────────────────────────────
+function initMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const closeBtn = document.getElementById('mobileNavClose');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (!hamburger || !mobileNav) return;
+
+  function openMenu() {
+    mobileNav.classList.add('open');
+    overlay.classList.add('active');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    overlay.classList.remove('active');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+}
+
+// ─────────────────────────────────────────────
+// FAQ ACCORDION
+// ─────────────────────────────────────────────
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    if (!question || !answer) return;
+
+    question.addEventListener('click', () => {
+      const isOpen = question.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      faqItems.forEach(other => {
+        const otherQ = other.querySelector('.faq-question');
+        const otherA = other.querySelector('.faq-answer');
+        if (otherQ && otherA && other !== item) {
+          otherQ.setAttribute('aria-expanded', 'false');
+          otherA.classList.remove('open');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        question.setAttribute('aria-expanded', 'false');
+        answer.classList.remove('open');
+      } else {
+        question.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
+    });
+  });
+}
+
+// ─────────────────────────────────────────────
+// NEWSLETTER FORM
+// ─────────────────────────────────────────────
+function initNewsletter() {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
+
+  // Pre-fill if already subscribed
+  if (localStorage.getItem(NEWSLETTER_KEY)) {
+    const emailInput = document.getElementById('newsletterEmail');
+    if (emailInput) emailInput.value = localStorage.getItem(NEWSLETTER_KEY);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('newsletterName')?.value?.trim();
+    const email = document.getElementById('newsletterEmail')?.value?.trim();
+
+    if (!name) {
+      showToast('Please enter your name', 'error');
+      return;
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast('Please enter a valid email address', 'error');
+      return;
+    }
+
+    // Simulate async submission
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.textContent = 'Subscribing...';
+      btn.disabled = true;
+    }
+
+    setTimeout(() => {
+      localStorage.setItem(NEWSLETTER_KEY, email);
+      showToast(`🎉 Welcome, ${name}! Your 10% discount code is PRISM10`, 'success', 5000);
+
+      if (btn) {
+        btn.textContent = '✓ You\'re Subscribed!';
+        btn.style.background = '#047857';
+      }
+      form.reset();
+    }, 800);
+  });
+}
+
+// ─────────────────────────────────────────────
+// EXIT-INTENT POPUP
+// ─────────────────────────────────────────────
+function initExitPopup() {
+  // Don't show if already shown this session
+  if (sessionStorage.getItem(POPUP_KEY)) return;
+
+  const popup = document.getElementById('exitPopup');
+  const overlay = document.getElementById('popupOverlay');
+  const closeBtn = document.getElementById('popupClose');
+  const dismissBtn = document.getElementById('popupDismiss');
+  const ctaBtn = document.getElementById('popupCta');
+
+  if (!popup) return;
+
+  let triggered = false;
+  let showTimer;
+
+  function showPopup() {
+    if (triggered) return;
+    triggered = true;
+    sessionStorage.setItem(POPUP_KEY, '1');
+    popup.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePopup() {
+    popup.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Trigger on mouse exit (desktop)
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 5 && !triggered) {
+      showTimer = setTimeout(showPopup, 200);
+    }
+  });
+
+  // Cancel if mouse re-enters
+  document.addEventListener('mouseenter', () => {
+    clearTimeout(showTimer);
+  });
+
+  // Trigger after 45s on mobile (fallback)
+  setTimeout(() => {
+    if (!triggered) showPopup();
+  }, 45000);
+
+  // Close handlers
+  if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+  if (dismissBtn) dismissBtn.addEventListener('click', hidePopup);
+  if (overlay) overlay.addEventListener('click', hidePopup);
+
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+      hidePopup();
+      // Scroll to products
+      const target = document.getElementById('eco-home');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hidePopup();
+  });
+}
+
+// ─────────────────────────────────────────────
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ─────────────────────────────────────────────
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').slice(1);
+      if (!targetId) return; // bare "#" — let it go to top
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      e.preventDefault();
+      const headerHeight = parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '72',
+        10
+      );
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+}
+
+// ─────────────────────────────────────────────
+// STICKY CART BAR
+// ─────────────────────────────────────────────
+function initStickyCartBar() {
+  const bar = document.getElementById('stickyCartBar');
+  const btn = document.getElementById('stickyCartBtn');
+
+  if (!bar) return;
+
+  // Show once user scrolls into products section
+  const ecoHome = document.getElementById('eco-home');
+  if (ecoHome) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && cartQty > 0) {
+          bar.classList.add('visible');
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(ecoHome);
+  }
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      // Navigate to Shopify cart
+      window.open(`https://jv17sy-r4.myshopify.com/cart`, '_blank', 'noopener');
+    });
+  }
+}
+
+// ─────────────────────────────────────────────
+// NAV ACTIVE LINK ON SCROLL
+// ─────────────────────────────────────────────
+function initNavHighlight() {
+  const sections = ['eco-home', 'eco-pet', 'bundles'];
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+  );
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Home link active when near top
+  window.addEventListener('scroll', debounce(() => {
+    if (window.scrollY < 300) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const homeLink = document.querySelector('.nav-link[href="#"]');
+      if (homeLink) homeLink.classList.add('active');
+    }
+  }, 100), { passive: true });
+}
+
+// ─────────────────────────────────────────────
+// LAZY LOAD IMAGES (extra safety)
+// ─────────────────────────────────────────────
+function initLazyImages() {
+  if ('loading' in HTMLImageElement.prototype) return; // native support
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        imgObserver.unobserve(img);
+      }
+    });
+  });
+  images.forEach(img => imgObserver.observe(img));
+}
+
+// ─────────────────────────────────────────────
+// DATA VALIDATION & NORMALIZATION
+// ─────────────────────────────────────────────
+
+/**
+ * Normalize a raw product object to ensure required fields
+ */
+function normalizeProduct(p) {
+  return {
+    id: p.id || p.variant_id || String(Math.random()).slice(2),
+    title: p.title || p.name || 'Eco Product',
+    price: parseFloat(p.price) || 0,
+    compare_at_price: p.compare_at_price ? parseFloat(p.compare_at_price) : null,
+    image: p.image || p.featured_image || p.images?.[0] || '',
+    collection: (p.collection || p.type || p.product_type || '').toLowerCase(),
+    rating: parseFloat(p.rating) || 4.5,
+    review_count: parseInt(p.review_count || p.reviews_count || 0),
+    badge: p.badge || null,
+    is_best_seller: Boolean(p.is_best_seller || p.best_seller),
+    is_new: Boolean(p.is_new || p.new_arrival),
+    tags: Array.isArray(p.tags) ? p.tags : [],
+  };
+}
+
+/**
